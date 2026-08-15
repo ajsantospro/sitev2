@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Administrativo — AJ Santos</title>
+<link rel="icon" href="logo-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  :root{--navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#0b0e1a;--mint:#71ffcc;--mint-dim:#3fdba8;--paper:#ffffff;--fog:#f3f5fb;--slate:#5b6478;--line:#e2e6f2;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--fog);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--navy);}
+  a{color:inherit;}
+
+  /* login screen */
+  #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--navy),var(--navy-2));padding:24px;}
+  .login-card{background:#fff;border-radius:20px;padding:40px;max-width:380px;width:100%;}
+  .login-card .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;margin-bottom:24px;}
+  .login-card .logo img{height:28px;}
+  .login-card h1{font-size:1.3rem;margin-bottom:6px;}
+  .login-card p{color:var(--slate);font-size:.88rem;margin-bottom:24px;}
+  label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;}
+  input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Inter';font-size:.92rem;margin-bottom:16px;}
+  input:focus{outline:2px solid var(--mint-dim);border-color:transparent;}
+  .btn{width:100%;padding:13px;border-radius:100px;font-weight:700;font-family:'Space Grotesk';background:var(--navy);color:#fff;border:none;cursor:pointer;font-size:.92rem;}
+  .btn:hover{background:var(--navy-2);}
+  .error-msg{color:#b91c1c;font-size:.85rem;margin-top:-8px;margin-bottom:14px;display:none;}
+
+  /* admin dashboard */
+  #dashboard{display:none;}
+  header{background:var(--navy);color:#fff;padding:18px 0;}
+  .header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;}
+  .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;}
+  .logo img{height:26px;}
+  .logout{font-size:.82rem;color:#c9cbf0;cursor:pointer;background:none;border:none;font-family:'Inter';}
+  main{max-width:1100px;margin:0 auto;padding:36px 24px 80px;}
+  .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
+  @media(max-width:760px){.summary{grid-template-columns:1fr 1fr;}}
+  .stat{background:#fff;border-radius:14px;padding:20px;border:1px solid var(--line);}
+  .stat .n{font-family:'Space Grotesk';font-size:1.7rem;font-weight:700;color:var(--navy);}
+  .stat .l{font-size:.8rem;color:var(--slate);margin-top:4px;}
+
+  .turma-group{background:#fff;border-radius:16px;border:1px solid var(--line);margin-bottom:18px;overflow:hidden;}
+  .turma-head{padding:18px 22px;background:var(--fog);display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+  .turma-head h3{font-size:1rem;}
+  .turma-head .meta{font-size:.82rem;color:var(--slate);margin-top:2px;}
+  .turma-head .badge{font-family:'Space Grotesk';font-weight:700;font-size:.8rem;color:var(--mint-dim);}
+  table{width:100%;border-collapse:collapse;display:none;}
+  table.open{display:table;}
+  th,td{text-align:left;padding:12px 22px;font-size:.86rem;border-top:1px solid var(--line);}
+  th{color:var(--slate);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;}
+  .empty-state{text-align:center;color:var(--slate);padding:60px 20px;font-size:.92rem;}
+</style>
+</head>
+<body>
+
+<div id="login-screen">
+  <div class="login-card">
+    <div class="logo"><img src="logo-icon.png" alt="AJ Santos">AJ SANTOS</div>
+    <h1>Painel Administrativo</h1>
+    <p>Entre com seu login para ver os alunos inscritos.</p>
+    <label for="login-email">E-mail</label>
+    <input type="email" id="login-email" placeholder="seu@email.com">
+    <label for="login-pass">Senha</label>
+    <input type="password" id="login-pass" placeholder="••••••••">
+    <div class="error-msg" id="login-error">E-mail ou senha incorretos.</div>
+    <button class="btn" id="login-btn">Entrar</button>
+  </div>
+</div>
+
+<div id="dashboard">
+  <header>
+    <div class="header-inner">
+      <div class="logo"><img src="logo-icon-white.png" alt="AJ Santos">AJ SANTOS · ADMIN</div>
+      <button class="logout" id="logout-btn">Sair</button>
+    </div>
+  </header>
+  <main>
+    <div class="summary" id="summary"></div>
+    <div id="turmas-container"></div>
+  </main>
+</div>
+
+<script>
+  const SUPABASE_URL = "https://qwhxenojawjejmgqlxwd.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_sxmLcGr8z03JMNekJg_07A_oACZyAHf";
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const loginScreen = document.getElementById('login-screen');
+  const dashboard = document.getElementById('dashboard');
+  const loginBtn = document.getElementById('login-btn');
+  const loginError = document.getElementById('login-error');
+
+  // checa se já está logado
+  sb.auth.getSession().then(({ data }) => {
+    if (data.session) showDashboard();
+  });
+
+  loginBtn.addEventListener('click', async () => {
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-pass').value;
+    loginError.style.display = 'none';
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Entrando...';
+
+    const { error } = await sb.auth.signInWithPassword({ email, password });
+
+    loginBtn.disabled = false;
+    loginBtn.textContent = 'Entrar';
+
+    if (error) {
+      loginError.style.display = 'block';
+      return;
+    }
+    showDashboard();
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', async () => {
+    await sb.auth.signOut();
+    location.reload();
+  });
+
+  async function showDashboard() {
+    loginScreen.style.display = 'none';
+    dashboard.style.display = 'block';
+    await carregarAlunos();
+  }
+
+  async function carregarAlunos() {
+    const { data: turmas, error: e1 } = await sb
+      .from('turmas')
+      .select('*')
+      .order('data_aula', { ascending: true });
+
+    const { data: alunos, error: e2 } = await sb
+      .from('alunos')
+      .select('*')
+      .order('criado_em', { ascending: false });
+
+    if (e1 || e2) {
+      document.getElementById('turmas-container').innerHTML =
+        '<div class="empty-state">Não foi possível carregar os dados. Confira se seu login tem permissão de leitura.</div>';
+      return;
+    }
+
+    const totalAlunos = alunos.length;
+    const totalTurmasComAluno = new Set(alunos.map(a => a.turma_id)).size;
+    const vagasAbertas = turmas.reduce((sum, t) => sum + Math.max(t.vagas_totais - t.vagas_ocupadas, 0), 0);
+
+    document.getElementById('summary').innerHTML = `
+      <div class="stat"><div class="n">${totalAlunos}</div><div class="l">Alunos inscritos (total)</div></div>
+      <div class="stat"><div class="n">${totalTurmasComAluno}</div><div class="l">Turmas com inscrição</div></div>
+      <div class="stat"><div class="n">${turmas.length}</div><div class="l">Turmas cadastradas</div></div>
+      <div class="stat"><div class="n">${vagasAbertas}</div><div class="l">Vagas ainda abertas</div></div>
+    `;
+
+    const container = document.getElementById('turmas-container');
+    container.innerHTML = '';
+
+    if (turmas.length === 0) {
+      container.innerHTML = '<div class="empty-state">Nenhuma turma cadastrada ainda.</div>';
+      return;
+    }
+
+    turmas.forEach(t => {
+      const alunosDaTurma = alunos.filter(a => a.turma_id === t.id);
+      const dataFmt = new Date(t.data_aula + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+
+      const group = document.createElement('div');
+      group.className = 'turma-group';
+
+      const rows = alunosDaTurma.map(a => `
+        <tr>
+          <td>${escapeHtml(a.nome)}</td>
+          <td>${escapeHtml(a.email)}</td>
+          <td>${escapeHtml(a.telefone)}</td>
+          <td>${new Date(a.criado_em).toLocaleDateString('pt-BR')}</td>
+        </tr>
+      `).join('');
+
+      group.innerHTML = `
+        <div class="turma-head">
+          <div>
+            <h3>${escapeHtml(t.curso)} — ${dataFmt}</h3>
+            <div class="meta">${t.horario}</div>
+          </div>
+          <div class="badge">${alunosDaTurma.length} / ${t.vagas_totais} inscritos</div>
+        </div>
+        <table>
+          <thead><tr><th>Nome</th><th>E-mail</th><th>Telefone</th><th>Inscrito em</th></tr></thead>
+          <tbody>${rows || '<tr><td colspan="4" style="color:#5b6478;">Nenhum aluno inscrito ainda.</td></tr>'}</tbody>
+        </table>
+      `;
+
+      const head = group.querySelector('.turma-head');
+      const table = group.querySelector('table');
+      head.addEventListener('click', () => table.classList.toggle('open'));
+
+      container.appendChild(group);
+    });
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+</script>
+
+</body>
+</html>
