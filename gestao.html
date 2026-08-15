@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestão Operacional — AJ Santos</title>
+<link rel="icon" href="assets/logo-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#0b0e1a;--mint:#71ffcc;--mint-dim:#3fdba8;--paper:#ffffff;--fog:#f3f5fb;--slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-family:'Space Grotesk';font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint-dim);font-weight:600;display:flex;align-items:center;gap:8px;}
+  .eyebrow::before{content:'';width:16px;height:1px;background:var(--mint-dim);display:inline-block;}
+  section{padding:96px 0;}
+  @media(max-width:720px){section{padding:60px 0;}.wrap{padding:0 20px;}}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(9,9,86,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;color:#fff;}
+  .logo .dot{width:8px;height:8px;background:var(--mint);border-radius:50%;box-shadow:0 0 10px var(--mint);}
+  .navlinks{display:flex;gap:36px;font-size:.92rem;color:#c9cbf0;}
+  .navlinks a:hover,.navlinks a.active{color:var(--mint);}
+  .nav-cta{background:var(--mint);color:var(--navy);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:100px;}
+  @media(max-width:900px){.navlinks{display:none;}}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:100px;font-weight:700;font-size:.92rem;font-family:'Space Grotesk';transition:transform .2s,box-shadow .2s;}
+  .btn-primary{background:var(--mint);color:var(--navy);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(113,255,204,.35);}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line-dark);}
+  .btn-ghost:hover{border-color:var(--mint);color:var(--mint);}
+
+  .pagehero{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:90px 0 70px;}
+  .pagehero .eyebrow{color:var(--mint);}
+  .pagehero .eyebrow::before{background:var(--mint);}
+  .pagehero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.6rem);margin:16px 0 18px;max-width:700px;}
+  .pagehero p{color:#c9cbf0;max-width:560px;font-size:1.02rem;margin-bottom:30px;}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
+
+  .trust{background:var(--fog);border-bottom:1px solid var(--line);}
+  .trust-inner{display:flex;align-items:center;gap:40px;flex-wrap:wrap;padding:26px 0;}
+  .trust-label{font-size:.78rem;color:var(--slate);white-space:nowrap;font-weight:600;}
+  .trust-logos{display:flex;gap:34px;flex-wrap:wrap;font-family:'Space Grotesk';font-weight:600;color:#9098b5;font-size:.95rem;}
+
+  .problem h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:16px 0 40px;max-width:680px;}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:760px){.problem-grid{grid-template-columns:1fr;}}
+  .problem-card{border:1px solid var(--line);border-radius:16px;padding:26px;}
+  .problem-card h4{font-size:1rem;color:var(--ink);margin-bottom:8px;}
+  .problem-card p{color:var(--slate);font-size:.9rem;}
+
+  .pillars{background:var(--fog);}
+  .pillars h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:16px 0 40px;}
+  .pillar-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:860px){.pillar-row{grid-template-columns:1fr;}}
+  .pillar-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px;}
+  .pillar-icon{width:44px;height:44px;border-radius:12px;background:var(--navy);color:var(--mint);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:18px;}
+  .pillar-card h3{font-size:1.08rem;margin-bottom:10px;}
+  .pillar-card p{color:var(--slate);font-size:.9rem;}
+
+  .method h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:16px 0 44px;}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.steps{grid-template-columns:1fr;}}
+  .step{border-left:2px solid var(--mint-dim);padding-left:18px;}
+  .step .n{font-family:'Space Grotesk';color:var(--mint-dim);font-weight:700;font-size:.85rem;}
+  .step h4{font-size:.98rem;margin:6px 0 6px;color:var(--ink);}
+  .step p{color:var(--slate);font-size:.86rem;}
+
+  .pricing{background:var(--navy);color:#fff;border-radius:22px;padding:48px;text-align:center;}
+  .pricing .eyebrow{color:var(--mint);justify-content:center;}
+  .pricing .eyebrow::before{display:none;}
+  .pricing h2{color:#fff;font-size:clamp(1.5rem,3vw,2rem);margin:14px 0 8px;}
+  .pricing .price{font-family:'Space Grotesk';font-size:2.6rem;font-weight:700;color:var(--mint);margin:10px 0;}
+  .pricing p{color:#c9cbf0;max-width:520px;margin:0 auto 22px;font-size:.94rem;}
+
+  .form-section{background:var(--fog);}
+  .form-wrap{max-width:640px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:44px;}
+  .form-wrap h2{font-size:1.5rem;margin-bottom:8px;}
+  .form-wrap>p{color:var(--slate);font-size:.92rem;margin-bottom:28px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+  .field input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Inter';font-size:.92rem;}
+  .field input:focus{outline:2px solid var(--mint-dim);border-color:transparent;}
+  .chip-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .chip{border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:.84rem;cursor:pointer;}
+  .chip:hover{border-color:var(--navy);}
+  .form-wrap .btn{width:100%;justify-content:center;background:var(--navy);color:#fff;margin-top:8px;}
+  .form-wrap .btn:hover{background:var(--navy-2);}
+
+  footer{background:var(--navy-3);color:#8b8fd6;padding:56px 0 30px;font-size:.86rem;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  .foot-grid h5{color:#fff;font-family:'Space Grotesk';font-size:.85rem;margin-bottom:14px;}
+  .foot-grid a{display:block;color:#8b8fd6;margin-bottom:9px;}
+  .foot-grid a:hover{color:var(--mint);}
+  .foot-bottom{border-top:1px solid var(--line-dark);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><img src="assets/logo-icon.png" alt="AJ Santos" style="height:34px;width:auto;">AJ SANTOS</a>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="ebooks.html">Biblioteca</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="gestao.html" class="active">Gestão</a>
+      <a href="blog.html">Blog</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+    <a href="#formulario" class="nav-cta">Agendar diagnóstico</a>
+  </div>
+</header>
+
+<section class="pagehero">
+  <div class="wrap">
+    <div class="eyebrow">Gestão de mídia, tagging e automação</div>
+    <h1>Você cuida da estratégia e do crescimento. Nós cuidamos da máquina de atração e dados.</h1>
+    <p>A AJ Santos coloca uma estrutura completa de inteligência digital, rastreamento de dados e tráfego pago rodando nos bastidores da sua empresa — com precisão corporativa.</p>
+    <div class="cta-row">
+      <a href="#formulario" class="btn btn-primary">Agendar diagnóstico →</a>
+      <a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais" target="_blank" class="btn btn-ghost">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-inner">
+    <div class="trust-label">Empresas que confiam na nossa gestão</div>
+    <div class="trust-logos">
+      <span>Eco Facility Clean</span><span>Ginger Street Food</span><span>Lapa e Zanetti</span>
+      <span>Grão da Terra</span><span>Wojuridico.adv</span>
+    </div>
+  </div>
+</div>
+
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <img src="assets/dashboard-mock.jpg" alt="Painel de performance e ROI" style="width:100%;border-radius:20px;display:block;">
+  </div>
+</section>
+
+<section class="problem">
+  <div class="wrap">
+    <div class="eyebrow">O problema que resolvemos</div>
+    <h2>O seu papel é fechar negócios e liderar — não ajustar tags ou otimizar campanhas.</h2>
+    <div class="problem-grid">
+      <div class="problem-card"><h4>Falta de tempo</h4><p>Gerenciar anúncios internamente consome horas que deveriam ir para comercial, equipe e produto.</p></div>
+      <div class="problem-card"><h4>Falta de processos técnicos</h4><p>76% das PMEs rasgam verba por falta de rastreamento avançado e análise real de DRE e ROI.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="wrap">
+    <div class="eyebrow">Pilares da gestão</div>
+    <h2>Como estruturamos a inteligência digital do seu negócio</h2>
+    <div class="pillar-row">
+      <div class="pillar-card">
+        <div class="pillar-icon">🎯</div>
+        <h3>Tráfego pago & mídia de performance</h3>
+        <p>Gestão técnica de campanhas no Google Ads e Meta Ads, com foco em redução de CAC e aumento de ROI.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">📊</div>
+        <h3>Tagging & inteligência de dados</h3>
+        <p>Implementação avançada via GTM, Meta Pixel e GA4. Saiba exatamente de onde veio cada venda.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🤖</div>
+        <h3>Automação & IA aplicada</h3>
+        <p>Otimização de cópias, testes A/B de criativos e aceleração da resposta comercial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="method">
+  <div class="wrap">
+    <div class="eyebrow">Metodologia</div>
+    <h2>Como trabalhamos, passo a passo</h2>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h4>Diagnóstico</h4><p>Auditoria completa da sua estrutura atual de anúncios e dados.</p></div>
+      <div class="step"><span class="n">02</span><h4>Engenharia de dados</h4><p>Configuração e correção de tags e mensuração no seu site.</p></div>
+      <div class="step"><span class="n">03</span><h4>Execução de mídia</h4><p>Campanhas otimizadas com foco no seu público qualificado.</p></div>
+      <div class="step"><span class="n">04</span><h4>Otimização contínua</h4><p>Acompanhamento diário e reuniões de alinhamento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="pricing">
+      <div class="eyebrow">Investimento</div>
+      <h2>Planos de Gestão Operacional sob medida</h2>
+      <div class="price">a partir de R$ 2.500/mês</div>
+      <p>Propostas personalizadas de acordo com o porte da empresa, volume de verba gerenciada e complexidade da operação. Ex‑alunos têm isenção da taxa de setup.</p>
+      <a href="#formulario" class="btn btn-primary">Solicitar proposta →</a>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="formulario">
+  <div class="wrap">
+    <div class="form-wrap" style="text-align:center;">
+      <h2>Solicite uma análise da sua empresa</h2>
+      <p>Preencha o formulário rápido abaixo para agendarmos uma reunião de diagnóstico de 20 minutos com o time de operações.</p>
+      <ul style="list-style:none;text-align:left;margin:24px 0 30px;color:var(--ink);font-size:.92rem;">
+        <li style="padding-left:22px;position:relative;margin-bottom:10px;"><span style="position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--mint-dim);border-radius:50%;"></span>Nome, empresa e contato</li>
+        <li style="padding-left:22px;position:relative;margin-bottom:10px;"><span style="position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--mint-dim);border-radius:50%;"></span>Faixa de investimento em anúncios</li>
+        <li style="padding-left:22px;position:relative;"><span style="position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--mint-dim);border-radius:50%;"></span>Leva menos de 2 minutos para preencher</li>
+      </ul>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBoP76I2mGQO6ngbh96aNWKbGcICksnbM-Uu_G4T0JvFDUSQ/viewform?usp=publish-editor" target="_blank" class="btn" style="width:100%;justify-content:center;">Agendar diagnóstico gratuito →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h5>AJ SANTOS</h5><p style="max-width:280px;color:#8b8fd6;">Inteligência de dados, tráfego pago e IA aplicada ao crescimento das PMEs do Simples Nacional.</p></div>
+      <div><h5>Navegação</h5><a href="ebooks.html">Biblioteca</a><a href="cursos.html">Cursos</a><a href="gestao.html">Gestão</a></div>
+      <div><h5>Empresa</h5><a href="sobre.html">Sobre</a><a href="blog.html">Blog</a></div>
+      <div><h5>Contato</h5><a href="https://wa.me/5511943592160" target="_blank">WhatsApp</a><a href="mailto:contato@ajsantos.com.br">contato@ajsantos.com.br</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AJ Santos. Todos os direitos reservados.</span><span>São Paulo, Brasil</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

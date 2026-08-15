@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca de Ebooks — AJ Santos</title>
+<link rel="icon" href="assets/logo-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#0b0e1a;
+    --mint:#71ffcc;--mint-dim:#3fdba8;--paper:#ffffff;--fog:#f3f5fb;
+    --slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-family:'Space Grotesk';font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint-dim);font-weight:600;display:flex;align-items:center;gap:8px;}
+  .eyebrow::before{content:'';width:16px;height:1px;background:var(--mint-dim);display:inline-block;}
+  section{padding:96px 0;}
+  @media(max-width:720px){section{padding:60px 0;}.wrap{padding:0 20px;}}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(9,9,86,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;color:#fff;}
+  .logo .dot{width:8px;height:8px;background:var(--mint);border-radius:50%;box-shadow:0 0 10px var(--mint);}
+  .navlinks{display:flex;gap:36px;font-size:.92rem;color:#c9cbf0;}
+  .navlinks a:hover,.navlinks a.active{color:var(--mint);}
+  .nav-cta{background:var(--mint);color:var(--navy);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:100px;}
+  @media(max-width:900px){.navlinks{display:none;}}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:100px;font-weight:700;font-size:.92rem;font-family:'Space Grotesk';transition:transform .2s,box-shadow .2s;}
+  .btn-primary{background:var(--mint);color:var(--navy);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(113,255,204,.35);}
+
+  .pagehero{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:90px 0 70px;}
+  .pagehero .eyebrow{color:var(--mint);}
+  .pagehero .eyebrow::before{background:var(--mint);}
+  .pagehero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem);margin:16px 0 18px;max-width:680px;}
+  .pagehero p{color:#c9cbf0;max-width:560px;font-size:1.03rem;}
+
+  .catalog{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:820px){.catalog{grid-template-columns:1fr;}}
+  .ebook-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;}
+  .ebook-cover{
+    height:200px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .ebook-cover .mock{width:110px;height:150px;background:var(--paper);border-radius:6px;box-shadow:0 20px 40px rgba(0,0,0,.35);
+    display:flex;flex-direction:column;padding:14px;transform:rotate(-4deg);}
+  .ebook-cover .mock .bar{height:6px;background:var(--mint-dim);border-radius:3px;margin-bottom:8px;width:70%;}
+  .ebook-cover .mock .ln{height:4px;background:var(--line);border-radius:2px;margin-bottom:6px;}
+  .ebook-body{padding:28px;}
+  .ebook-body .label{font-size:.72rem;color:var(--mint-dim);font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
+  .ebook-body h3{font-size:1.3rem;margin:8px 0 12px;}
+  .ebook-body p{color:var(--slate);font-size:.93rem;margin-bottom:14px;}
+  .ebook-body ul{list-style:none;font-size:.88rem;color:var(--ink);margin-bottom:20px;}
+  .ebook-body ul li{padding-left:18px;position:relative;margin-bottom:7px;}
+  .ebook-body ul li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--mint-dim);border-radius:50%;}
+  .ebook-foot{display:flex;align-items:center;justify-content:space-between;}
+  .price{font-family:'Space Grotesk';font-weight:700;font-size:1.3rem;color:var(--navy);}
+  .buy{background:var(--navy);color:#fff;padding:12px 20px;border-radius:100px;font-size:.85rem;font-weight:700;font-family:'Space Grotesk';}
+  .buy:hover{background:var(--navy-2);}
+
+  .bonus{background:var(--fog);border-radius:18px;padding:36px 34px;margin-top:56px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+  .bonus h3{font-size:1.15rem;margin-bottom:6px;}
+  .bonus p{color:var(--slate);font-size:.92rem;max-width:560px;}
+
+  .faq{background:var(--fog);}
+  .faq h2{font-size:clamp(1.6rem,3vw,2rem);margin-bottom:36px;}
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 0;}
+  .faq-item h4{font-size:1.02rem;margin-bottom:8px;color:var(--ink);}
+  .faq-item p{color:var(--slate);font-size:.92rem;}
+
+  .final-cta{text-align:center;}
+  .final-cta h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px;}
+  .final-cta p{color:var(--slate);margin-bottom:28px;}
+
+  footer{background:var(--navy-3);color:#8b8fd6;padding:56px 0 30px;font-size:.86rem;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  .foot-grid h5{color:#fff;font-family:'Space Grotesk';font-size:.85rem;margin-bottom:14px;}
+  .foot-grid a{display:block;color:#8b8fd6;margin-bottom:9px;}
+  .foot-grid a:hover{color:var(--mint);}
+  .foot-bottom{border-top:1px solid var(--line-dark);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><img src="assets/logo-icon.png" alt="AJ Santos" style="height:34px;width:auto;">AJ SANTOS</a>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="ebooks.html" class="active">Biblioteca</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="gestao.html">Gestão</a>
+      <a href="blog.html">Blog</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+    <a href="gestao.html" class="nav-cta">Agendar diagnóstico</a>
+  </div>
+</header>
+
+<section class="pagehero">
+  <div class="wrap">
+    <div class="eyebrow">Ferramentas de bolso</div>
+    <h1>Respostas práticas e checklists antidesperdício para a sua rotina.</h1>
+    <p>Sem teorias de 300 páginas. Guias executivos para baixar hoje, aplicar no mesmo dia e cortar gargalos de tempo e dinheiro.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="catalog">
+      <div class="ebook-card">
+        <div class="ebook-cover" style="background:none;padding:0;">
+          <img src="assets/ebook-antidesperdicio.jpg" alt="Capa: Manual Antidesperdício no Tráfego Pago" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ebook-body">
+          <div class="label">Tráfego Pago</div>
+          <h3>O Manual Antidesperdício no Tráfego Pago</h3>
+          <p>Como parar de rasgar dinheiro em anúncios e estruturar campanhas lucrativas na sua PME.</p>
+          <ul>
+            <li>5 erros que queimam sua verba no Google e Meta Ads</li>
+            <li>Checklist de rastreamento básico</li>
+            <li>Estrutura de campanha de alta conversão</li>
+          </ul>
+          <div class="ebook-foot">
+            <span class="price">R$ 60</span>
+            <a href="#" class="buy">Baixar manual →</a>
+          </div>
+        </div>
+      </div>
+      <div class="ebook-card">
+        <div class="ebook-cover" style="background:none;padding:0;">
+          <img src="assets/ebook-prompts-ia.jpg" alt="Capa: Engenharia de Prompts e IA para Empresários" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="ebook-body">
+          <div class="label">Inteligência Artificial</div>
+          <h3>Engenharia de Prompts & IA para Empresários</h3>
+          <p>Guia definitivo para economizar até 10 horas semanais na rotina da sua empresa usando IA.</p>
+          <ul>
+            <li>+50 prompts prontos para copiar e colar</li>
+            <li>Como treinar a IA no tom de voz do seu negócio</li>
+            <li>Framework de automação de processos internos</li>
+          </ul>
+          <div class="ebook-foot">
+            <span class="price">R$ 60</span>
+            <a href="#" class="buy">Baixar guia →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus">
+      <div>
+        <h3>💡 Bônus de evolução</h3>
+        <p>O valor investido em qualquer ebook vira desconto garantido na inscrição de qualquer treinamento ao vivo ou na Imersão Híbrida de 8h.</p>
+      </div>
+      <a href="cursos.html" class="btn btn-primary" style="background:var(--navy);color:#fff;">Ver treinamentos →</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap" style="max-width:760px;">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-item"><h4>Como recebo o meu ebook?</h4><p>O acesso é imediato. Assim que o pagamento é confirmado na plataforma, você recebe o link de download direto no e‑mail.</p></div>
+    <div class="faq-item"><h4>Consigo aplicar sem equipe técnica?</h4><p>Sim. Todos os manuais foram escritos para o dono da PME e seus gestores, com passo a passo direto e sem jargão técnico.</p></div>
+    <div class="faq-item"><h4>Posso compartilhar com meu time?</h4><p>Sim — o material é seu e foi feito para servir de consulta rápida no dia a dia da equipe.</p></div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Quer ir além dos manuais?</h2>
+    <p>Tenha o acompanhamento ao vivo do AJ Santos nas turmas noturnas.</p>
+    <a href="cursos.html" class="btn btn-primary" style="background:var(--navy);color:#fff;">Ver agenda de cursos →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h5>AJ SANTOS</h5><p style="max-width:280px;color:#8b8fd6;">Inteligência de dados, tráfego pago e IA aplicada ao crescimento das PMEs do Simples Nacional.</p></div>
+      <div><h5>Navegação</h5><a href="ebooks.html">Biblioteca</a><a href="cursos.html">Cursos</a><a href="gestao.html">Gestão</a></div>
+      <div><h5>Empresa</h5><a href="sobre.html">Sobre</a><a href="blog.html">Blog</a></div>
+      <div><h5>Contato</h5><a href="https://wa.me/5511943592160" target="_blank">WhatsApp</a><a href="mailto:contato@ajsantos.com.br">contato@ajsantos.com.br</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AJ Santos. Todos os direitos reservados.</span><span>São Paulo, Brasil</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
