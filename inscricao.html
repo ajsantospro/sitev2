@@ -30,6 +30,26 @@
   select:focus, input:focus{outline:2px solid var(--mint-dim);border-color:transparent;}
 
   .turmas-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+
+  .next-turma-card{
+    border:2px solid var(--mint-dim);border-radius:14px;padding:20px 18px;
+    background:linear-gradient(135deg, rgba(63,219,168,.06), rgba(63,219,168,.02));
+    position:relative;
+  }
+  .next-turma-card .urgency-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;
+    padding:5px 12px;border-radius:100px;margin-bottom:14px;font-family:'Space Grotesk';
+    text-transform:uppercase;letter-spacing:.04em;
+  }
+  .next-turma-card .urgency-badge::before{content:'●';color:var(--mint);font-size:.6rem;}
+  .next-turma-card .data{font-family:'Space Grotesk';font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .next-turma-card .horario{color:var(--slate);font-size:.9rem;margin-bottom:14px;}
+  .next-turma-card .vagas-row{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px dashed var(--line);}
+  .next-turma-card .vagas-label{font-size:.82rem;color:var(--slate);}
+  .next-turma-card .vagas-num{font-family:'Space Grotesk';font-weight:700;color:var(--mint-dim);font-size:.95rem;}
+  .next-turma-card .vagas-num.pouco{color:#d97706;}
+
   .turma-opt{
     border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;
     display:flex;justify-content:space-between;align-items:center;transition:border-color .15s;
@@ -87,7 +107,7 @@
     </select>
 
     <div id="turmas-container" style="display:none;">
-      <label>Data disponível</label>
+      <label>Data da turma</label>
       <div class="turmas-list" id="turmas-list"></div>
     </div>
 
@@ -151,7 +171,9 @@
 
   async function carregarTurmas(curso) {
     turmasContainer.style.display = 'block';
-    turmasList.innerHTML = '<div class="empty">Carregando turmas...</div>';
+    turmasList.innerHTML = '<div class="empty">Carregando turma...</div>';
+    dadosContainer.style.display = 'none';
+    turmaSelecionada = null;
 
     const { data, error } = await sb
       .from('turmas')
@@ -172,29 +194,27 @@
       return;
     }
 
-    turmasList.innerHTML = '';
-    disponiveis.forEach(t => {
-      const restantes = t.vagas_totais - t.vagas_ocupadas;
-      const div = document.createElement('div');
-      div.className = 'turma-opt';
-      div.dataset.id = t.id;
-      const dataFmt = new Date(t.data_aula + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-      div.innerHTML = `
-        <div class="info">
-          <b>${dataFmt}</b>
-          <span>${t.horario}</span>
+    // Mostra só a próxima turma disponível (a mais próxima no calendário)
+    const t = disponiveis[0];
+    const restantes = t.vagas_totais - t.vagas_ocupadas;
+    const dataFmt = new Date(t.data_aula + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+
+    turmasList.innerHTML = `
+      <div class="next-turma-card">
+        <span class="urgency-badge">Próxima turma</span>
+        <div class="data">${dataFmt}</div>
+        <div class="horario">${t.horario}</div>
+        <div class="vagas-row">
+          <span class="vagas-label">Vagas restantes</span>
+          <span class="vagas-num ${restantes <= 3 ? 'pouco' : ''}">${restantes} vaga${restantes === 1 ? '' : 's'}</span>
         </div>
-        <div class="vagas ${restantes <= 3 ? 'pouco' : ''}">${restantes} vaga${restantes === 1 ? '' : 's'}</div>
-      `;
-      div.addEventListener('click', () => {
-        document.querySelectorAll('.turma-opt').forEach(el => el.classList.remove('selected'));
-        div.classList.add('selected');
-        turmaSelecionada = t.id;
-        dadosContainer.style.display = 'block';
-        msg.style.display = 'none';
-      });
-      turmasList.appendChild(div);
-    });
+      </div>
+    `;
+
+    // seleciona automaticamente, já libera o formulário
+    turmaSelecionada = t.id;
+    dadosContainer.style.display = 'block';
+    msg.style.display = 'none';
   }
 
   submitBtn.addEventListener('click', async () => {
