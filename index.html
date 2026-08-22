@@ -12,7 +12,7 @@
 <meta name="description" content="Você construiu sua empresa para liderar e crescer. Entregamos a estrutura para você chegar lá com IA, tráfego pago e dados aplicados à sua PME.">
 <link rel="icon" href="logo-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#090956;
@@ -26,8 +26,9 @@
     --slate:#5b6478;
     --line:#e2e6f2;
     --line-dark:rgba(255,255,255,.14);
-  }
+  --terracota:#C96442;}
   *{box-sizing:border-box;margin:0;padding:0;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
   html{scroll-behavior:smooth;}
   body{
     font-family:'Inter',sans-serif;
@@ -111,7 +112,7 @@
   .signal-card .tag{font-family:'Space Grotesk';font-size:.72rem;color:#8b8fd6;letter-spacing:.08em;text-transform:uppercase;}
   .signal-points{display:flex;justify-content:space-between;margin-top:18px;}
   .signal-points div{text-align:left;}
-  .signal-points .num{font-family:'Space Grotesk';color:var(--mint);font-size:1.3rem;font-weight:700;}
+  .signal-points .num{font-family:'IBM Plex Mono';color:var(--mint);font-size:1.3rem;font-weight:700;}
   .signal-points .lbl{font-size:.72rem;color:#8b8fd6;margin-top:2px;}
 
   /* trust bar */
@@ -125,7 +126,7 @@
   .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   @media(max-width:860px){.pain-grid{grid-template-columns:1fr;}}
   .pain-card{border:1px solid var(--line);border-radius:16px;padding:30px 26px;background:var(--paper);}
-  .pain-card .stat{font-family:'Space Grotesk';font-size:2rem;color:var(--navy);font-weight:700;}
+  .pain-card .stat{font-family:'IBM Plex Mono';font-size:2rem;color:var(--navy);font-weight:700;}
   .pain-card p{color:var(--slate);font-size:.94rem;margin-top:10px;}
   .turn{margin-top:44px;padding:28px 32px;border-radius:16px;background:var(--navy);color:#fff;font-size:1.05rem;}
   .turn span{color:var(--mint);font-weight:700;}
@@ -171,7 +172,10 @@
     font-family:'Space Grotesk';font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:500;
     max-width:820px;margin:0 auto 26px;line-height:1.4;
   }
-  .manifesto blockquote span{color:var(--mint);}
+  .manifesto blockquote span{color:var(--terracota);}
+  .manifesto blockquote{border-left:3px solid var(--terracota);padding-left:24px;text-align:left;max-width:820px;margin:0 auto;}
+  .manifesto{text-align:center;}
+  .manifesto .wrap{display:flex;flex-direction:column;align-items:center;}
   .manifesto cite{font-style:normal;color:#8b8fd6;font-size:.9rem;}
 
   /* ---------- FINAL CTA ---------- */
@@ -216,11 +220,12 @@
     <div>
       <div class="eyebrow">Acelerador de performance para PMEs</div>
       <h1>Você construiu sua empresa para liderar e crescer. <span>Nós entregamos a estrutura</span> para você chegar lá.</h1>
-      <p>IA, tráfego pago e engenharia de dados das grandes corporações, aplicados no chão de fábrica da sua PME. Você escolhe o formato que faz sentido agora: aprender, capacitar sua equipe ou delegar a operação.</p>
+      <p>17 anos aplicando tráfego pago e dados em mercado real. O que você vai aprender aqui é o que eu ainda uso na operação, não teoria de sala de aula. Escolha o formato que faz sentido agora: aprender, capacitar sua equipe ou delegar a operação.</p>
       <div class="cta-row">
-        <a href="cursos.html" class="btn btn-primary">Quero me capacitar →</a>
-        <a href="gestao.html" class="btn btn-ghost">Quero delegar a operação</a>
+        <a href="cursos.html" class="btn btn-primary">Quero aprender o método →</a>
+        <a href="ebooks.html" class="btn btn-ghost">Começar pelos guias práticos</a>
       </div>
+      <p style="margin-top:18px;font-size:.85rem;"><a href="gestao.html" style="color:#8b8fd6;text-decoration:underline;">Já aplica o método e quer delegar a execução? Conheça a gestão operacional →</a></p>
     </div>
     <div class="signal-wrap">
       <div class="signal-card">
@@ -310,7 +315,7 @@
       <div class="path-card">
         <div class="altitude"><span class="altitude-label">03</span><div class="altitude-track"><i style="--pos:92%"></i></div></div>
         <h3>Retaguarda dedicada</h3>
-        <div class="quote">"Não tenho tempo a perder, preciso do time pronto."</div>
+        <div class="quote">"Já entendi o método, agora quero delegar a execução."</div>
         <ul>
           <li>Tráfego pago gerenciado</li>
           <li>Tagging e dados (GTM/GA4)</li>
@@ -332,7 +337,7 @@
         <div class="blog-thumb" style="background-image:url(blog-ia-automacao.jpg);background-size:cover;background-position:center;"></div>
         <div class="blog-body">
           <div class="blog-cat">IA & Automação</div>
-          <h4>Como usar IA no chão de fábrica sem depender de equipe</h4>
+          <h4>Como usar IA na rotina da sua empresa sem depender de equipe</h4>
           <p>Automatize rotinas comerciais em 15 minutos por dia.</p>
         </div>
       </a>
@@ -358,7 +363,7 @@
 
 <section class="manifesto">
   <div class="wrap">
-    <blockquote>"O empresário brasileiro não erra por falta de esforço. Erra porque ninguém nunca sentou com ele pra organizar o básico de tecnologia e tráfego. A AJ Santos existe pra <span>resolver exatamente isso.</span>"</blockquote>
+    <blockquote>"O empresário brasileiro não erra por falta de esforço. Eu vi isso de perto em 17 anos de operação: ele erra porque ninguém nunca sentou com ele pra organizar o básico de tecnologia e tráfego. É <span>isso que eu ensino a resolver.</span>"</blockquote>
     <cite>— AJ Santos, fundador</cite>
   </div>
 </section>
@@ -379,7 +384,7 @@
     <div class="foot-grid">
       <div>
         <h5>AJ SANTOS</h5>
-        <p style="max-width:280px;color:#8b8fd6;">Inteligência de dados, tráfego pago e IA aplicada ao crescimento das PMEs do Simples Nacional.</p>
+        <p style="max-width:280px;color:#8b8fd6;font-style:italic;">"O que eu ensino é o que eu ainda aplico."</p>
       </div>
       <div>
         <h5>Navegação</h5>
