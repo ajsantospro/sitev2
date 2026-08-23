@@ -265,6 +265,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return;
     }
 
+    const cursoOption = cursoSelect.options[cursoSelect.selectedIndex];
+    const valorMatch = cursoOption.textContent.match(/R\$\s*([\d.,]+)/);
+    const valor = valorMatch ? parseFloat(valorMatch[1].replace('.', '').replace(',', '.')) : undefined;
+
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: 'inscricao_confirmada',
+      curso: cursoSelect.value,
+      valor: valor,
+      currency: 'BRL'
+    });
+
     document.getElementById('form-card').style.display = 'none';
     document.getElementById('success-card').style.display = 'block';
   });
