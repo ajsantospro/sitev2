@@ -8,7 +8,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KT66K5ZP');</script>
 <!-- End Google Tag Manager -->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inscrição em Turma — AJ Santos</title>
@@ -96,7 +95,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-
 <header>
   <div class="wrap">
     <a href="index.html" class="logo"><img src="logo-icon-white.png" alt="AJ Santos">AJ SANTOS</a>
@@ -163,6 +161,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const submitBtn = document.getElementById('submit-btn');
 
   let turmaSelecionada = null;
+
+  const PRECOS = {
+    'Combo Híbrido': 997,
+    'Google Ads': 397,
+    'Meta Ads': 397,
+    'Mastery Google+Meta': 697,
+    'IA do Zero': 450
+  };
 
   // pre-seleciona curso via ?curso=NomeDoCurso na URL
   const params = new URLSearchParams(window.location.search);
@@ -265,20 +271,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return;
     }
 
-    const cursoOption = cursoSelect.options[cursoSelect.selectedIndex];
-    const valorMatch = cursoOption.textContent.match(/R\$\s*([\d.,]+)/);
-    const valor = valorMatch ? parseFloat(valorMatch[1].replace('.', '').replace(',', '.')) : undefined;
-
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({
-      event: 'inscricao_concluida',
-      curso: cursoSelect.value,
-      valor: valor,
-      currency: 'BRL'
-    });
-
     document.getElementById('form-card').style.display = 'none';
     document.getElementById('success-card').style.display = 'block';
+
+    if (window.dataLayer) {
+      dataLayer.push({
+        'event': 'inscricao_concluida',
+        curso: cursoSelect.value,
+        value: PRECOS[cursoSelect.value] || 0,
+        currency: 'BRL',
+        event_category: 'conversao',
+        event_label: cursoSelect.value
+      });
+    }
   });
 
   function showMsg(text, type) {
