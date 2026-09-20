@@ -110,17 +110,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .btn-ghost:hover{border-color:var(--mint);color:var(--mint);}
 
   /* signal line visual */
-  .signal-wrap{position:relative;height:340px;}
+  .signal-wrap{position:relative;height:420px;}
   .signal-card{
     position:absolute;inset:0;border:1px solid var(--line-dark);border-radius:20px;
     background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-    padding:24px;
+    padding:0;overflow:hidden;display:flex;flex-direction:column;
   }
   .signal-card .tag{font-family:'Space Grotesk';font-size:.72rem;color:#8b8fd6;letter-spacing:.08em;text-transform:uppercase;}
-  .signal-points{display:flex;justify-content:space-between;margin-top:18px;}
-  .signal-points div{text-align:left;}
-  .signal-points .num{font-family:'IBM Plex Mono';color:var(--mint);font-size:1.3rem;font-weight:700;}
-  .signal-points .lbl{font-size:.72rem;color:#8b8fd6;margin-top:2px;}
+  .signal-photo{position:relative;flex:1;overflow:hidden;background:linear-gradient(160deg,var(--navy),var(--navy-2));}
+  .signal-photo::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(113,255,204,.07) 22px 23px);}
+  .signal-photo img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:none;z-index:1;}
+  .signal-photo .tag{position:absolute;top:20px;left:20px;background:rgba(9,9,86,.55);backdrop-filter:blur(4px);padding:8px 14px;border-radius:100px;z-index:2;}
 
   /* trust bar */
   .trust{background:var(--fog);border-bottom:1px solid var(--line);}
@@ -240,22 +240,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="signal-wrap">
       <div class="signal-card">
-        <div class="tag">Painel de performance · em tempo real</div>
-        <svg viewBox="0 0 320 160" width="100%" height="150" style="margin-top:14px;">
-          <polyline points="0,130 40,110 80,120 120,80 160,90 200,50 240,60 280,25 320,15"
-            fill="none" stroke="#71ffcc" stroke-width="2.5"/>
-          <g fill="#71ffcc">
-            <circle cx="120" cy="80" r="3.5"/>
-            <circle cx="200" cy="50" r="3.5"/>
-            <circle cx="320" cy="15" r="4.5"/>
-          </g>
-          <polyline points="0,130 40,110 80,120 120,80 160,90 200,50 240,60 280,25 320,15 320,160 0,160"
-            fill="rgba(113,255,204,.06)" stroke="none"/>
-        </svg>
-        <div class="signal-points">
-          <div><div class="num">17+</div><div class="lbl">anos de mercado e docência</div></div>
-          <div><div class="num">6</div><div class="lbl">clientes de gestão ativos hoje</div></div>
-          <div><div class="num">3</div><div class="lbl">novos alunos por mês, em média</div></div>
+        <div class="signal-photo">
+          <img src="founder-portrait.png" alt="AJ Santos">
+          <div class="tag">AJ Santos · fundador</div>
         </div>
       </div>
     </div>
@@ -381,11 +368,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="final-cta">
   <div class="wrap">
-    <h2>Pronto para transformar a operação digital da sua empresa?</h2>
-    <p>Seja aprendendo em nossas imersões ou deixando a operação conosco, a sua jornada de escala começa com uma conversa.</p>
+    <h2>Pronto pra aprender o método que eu ainda aplico?</h2>
+    <p>Comece pelos guias práticos ou entre direto numa turma. Se depois quiser delegar a execução, eu te mostro como.</p>
     <div class="cta-row">
-      <a href="gestao.html" class="btn btn-primary">Agendar diagnóstico gratuito</a>
-      <a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais" target="_blank" class="btn btn-ghost">Falar no WhatsApp</a>
+      <a href="cursos.html" class="btn btn-primary">Ver agenda de turmas</a>
+      <a href="ebooks.html" class="btn btn-ghost">Ver guias práticos</a>
     </div>
   </div>
 </section>
