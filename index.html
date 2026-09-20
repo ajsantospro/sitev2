@@ -91,8 +91,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);
     position:relative;overflow:hidden;padding:110px 0 90px;
   }
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:2;}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:center;position:relative;z-index:2;max-width:720px;margin:0 auto;text-align:left;}
   .hero .eyebrow{color:var(--mint);margin-bottom:22px;}
   .hero .eyebrow::before{background:var(--mint);}
   .hero h1{color:#fff;font-size:clamp(2.1rem,4vw,3.1rem);line-height:1.12;margin-bottom:22px;}
@@ -109,18 +108,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line-dark);}
   .btn-ghost:hover{border-color:var(--mint);color:var(--mint);}
 
-  /* signal line visual */
-  .signal-wrap{position:relative;height:420px;}
-  .signal-card{
-    position:absolute;inset:0;border:1px solid var(--line-dark);border-radius:20px;
-    background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-    padding:0;overflow:hidden;display:flex;flex-direction:column;
-  }
-  .signal-card .tag{font-family:'Space Grotesk';font-size:.72rem;color:#8b8fd6;letter-spacing:.08em;text-transform:uppercase;}
-  .signal-photo{position:relative;flex:1;overflow:hidden;background:linear-gradient(160deg,var(--navy),var(--navy-2));}
-  .signal-photo::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(113,255,204,.07) 22px 23px);}
-  .signal-photo img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:none;z-index:1;}
-  .signal-photo .tag{position:absolute;top:20px;left:20px;background:rgba(9,9,86,.55);backdrop-filter:blur(4px);padding:8px 14px;border-radius:100px;z-index:2;}
 
   /* trust bar */
   .trust{background:var(--fog);border-bottom:1px solid var(--line);}
@@ -237,14 +224,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="ebooks.html" class="btn btn-ghost">Começar pelos guias práticos</a>
       </div>
       <p style="margin-top:18px;font-size:.85rem;"><a href="gestao.html" style="color:#8b8fd6;text-decoration:underline;">Já aplica o método e quer delegar a execução? Conheça a gestão operacional →</a></p>
-    </div>
-    <div class="signal-wrap">
-      <div class="signal-card">
-        <div class="signal-photo">
-          <img src="founder-portrait.png" alt="AJ Santos">
-          <div class="tag">AJ Santos · fundador</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
