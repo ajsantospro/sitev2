@@ -156,6 +156,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .foot-bottom{border-top:1px solid var(--line-dark);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 </style>
 <style>
+.hero-photo.cut{background:radial-gradient(closest-side at 55% 38%,#1d1fa8 0,#12136e 50%,transparent 100%);}
+.hero-photo.cut img{object-fit:cover;object-position:50% 0;}
 .story{background:var(--fog);}
 .story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center;}
 .story-photo img{width:100%;border-radius:18px;aspect-ratio:4/3;object-fit:cover;}
@@ -192,6 +194,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .path p{color:var(--slate);font-size:.94rem;max-width:440px;}
 .path .mono{color:var(--navy);font-weight:600;font-size:.95rem;}
 .path .link{color:var(--navy);}
+.ig{background:var(--navy);padding:56px 0;}
+.ig-in{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;}
+.ig h2{color:#fff;font-size:clamp(1.6rem,2.6vw,2.1rem);margin-bottom:6px;}
+.ig-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.ig p{color:#c9cbf0;max-width:520px;}
 .final{background:var(--paper);}
 @media(max-width:860px){
  .story-grid{grid-template-columns:1fr;gap:28px;}
@@ -232,7 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="gestao.html" class="link">Conhecer a gestão</a>
       </div>
     </div>
-    <div class="hero-photo"><img src="aj-sentado.webp" alt="AJ Santos em evento de marketing digital"></div>
+    <div class="hero-photo cut"><img src="aj-corte.webp" alt="AJ Santos ministrando aula"></div>
   </div>
 </section>
 
@@ -256,20 +263,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap brands">Trabalhei diretamente nas campanhas de UOL, P&amp;G, Volvo, Aeroporto RIOgaleão, BRK Ambiental, Braskem e Saint Paul Escola de Negócios.</div>
 </section>
 
-<section class="timeline">
-  <div class="wrap">
-    <h2>17 anos, em marcos.</h2>
-    <div class="tl"><span class="mono">2009</span><p>Começa no marketing digital e funda a PHX.</p></div>
-    <div class="tl"><span class="mono">2011</span><p>Primeira docência, no Centro Universitário Ítalo-Brasileiro, e primeira palestra.</p></div>
-    <div class="tl"><span class="mono">2016 a 2019</span><p>Campanhas da Volvo, da P&amp;G e da Saint Paul Escola de Negócios.</p></div>
-    <div class="tl"><span class="mono">2020</span><p>Campanhas da Braskem, do Aeroporto RIOgaleão e da BRK Ambiental.</p></div>
-    <div class="tl"><span class="mono">2022 a 2024</span><p>Campanhas do UOL.</p></div>
-    <div class="tl"><span class="mono">Março de 2024</span><p>Abertura da AJ Santos, para levar o método das grandes contas às PMEs.</p></div>
-    <div class="tl"><span class="mono">2024</span><p>Primeira coluna em jornal, no DHOJE.</p></div>
-    <div class="tl"><span class="mono">Janeiro de 2025</span><p>Lançamento dos cursos ao vivo.</p></div>
-    <div class="tl"><span class="mono">Novembro de 2025</span><p>Colunista convidado da Revista da ABIT.</p></div>
-  </div>
-</section>
 <section class="pil">
   <div class="wrap">
     <h2>Como a gente pensa.</h2>
@@ -297,6 +290,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="ig">
+  <div class="wrap ig-in">
+    <div>
+      <h2>Acompanhe nas redes.</h2>
+      <p>Conteúdo sobre tráfego pago, dados e IA, e os bastidores de aulas e eventos.</p>
+    </div>
+    <div class="ig-btns">
+      <a href="https://www.instagram.com/ajsantos.pro/" target="_blank" rel="noopener" class="btn btn-primary" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_instagram',event_category:'engajamento',event_label:'sobre'});">Instagram</a>
+      <a href="https://www.linkedin.com/in/ailtonsantos" target="_blank" rel="noopener" class="btn btn-primary" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_linkedin',event_category:'engajamento',event_label:'sobre'});">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
 <section class="final">
   <div class="wrap">
     <h2>Comece pelo método.</h2>
@@ -314,7 +320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div><h5>AJ SANTOS</h5><p style="max-width:280px;color:#8b8fd6;font-style:italic;">"O que eu ensino é o que eu ainda aplico."</p></div>
       <div><h5>Navegação</h5><a href="cursos.html">Cursos</a><a href="ebooks.html">Biblioteca</a><a href="blog.html">Blog</a></div>
       <div><h5>Empresa</h5><a href="sobre.html">Sobre</a><a href="palestras.html">Palestras</a><a href="gestao.html">Gestão</a></div>
-      <div><h5>Contato</h5><a href="https://wa.me/5511943592160" target="_blank">Falar no WhatsApp</a><a href="gestao.html#formulario">Agendar diagnóstico</a></div>
+      <div><h5>Contato</h5><a href="https://wa.me/5511943592160" target="_blank">Falar no WhatsApp</a><a href="gestao.html#formulario">Agendar diagnóstico</a><a href="https://www.instagram.com/ajsantos.pro/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/ailtonsantos" target="_blank" rel="noopener">LinkedIn</a></div>
     </div>
     <div class="foot-bottom"><span>© 2026 AJ Santos. Todos os direitos reservados. &nbsp;·&nbsp; <a href="privacidade.html" style="color:#8b8fd6;">Privacidade</a> &nbsp;·&nbsp; <a href="termos.html" style="color:#8b8fd6;">Termos de uso</a></span><span>São Paulo, Brasil</span></div>
   </div>
