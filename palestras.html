@@ -10,99 +10,176 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AJ Santos — Palestras sobre IA e Tráfego Pago para PMEs</title>
-<meta property="og:title" content="AJ Santos — Palestras sobre IA e Tráfego Pago para PMEs">
-<meta property="og:description" content="Palestras e workshops sobre inteligência artificial e tráfego pago aplicados à pequena e média empresa. Peça uma proposta pro seu evento.">
-<meta property="og:image" content="https://ajsantos.pro.br/logo-full.png">
+<title>Palestras | AJ Santos</title>
+<meta property="og:title" content="AJ Santos | Palestras">
+<meta property="og:description" content="Palestras e workshops de AJ Santos sobre tráfego pago, dados e IA para PMEs, em eventos presenciais ou online.">
+<meta property="og:image" content="https://ajsantos.pro.br/og-aj.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Palestras e workshops sobre inteligência artificial e tráfego pago aplicados à pequena e média empresa. Peça uma proposta pro seu evento.">
+<meta name="description" content="Palestras e workshops de AJ Santos sobre tráfego pago, dados e IA para PMEs, em eventos presenciais ou online.">
 <link rel="icon" href="logo-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-  .mono{font-family:'IBM Plex Mono',monospace;}
-  :root{
-    --navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#1E1E2A;
-    --mint:#71ffcc;--mint-dim:#3fdba8;--paper:#ffffff;--fog:#F4F4F0;
-    --slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);--terracota:#C96442;
-  }
+
+  <style>
+  :root{--navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#1E1E2A;--mint:#71ffcc;--mint-dim:#3fdba8;--paper:#fff;--fog:#F4F4F0;--slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);--terracota:#C96442;}
   *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
   body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;color:var(--navy);}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.015em;color:var(--navy);}
   a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-  .eyebrow{font-family:'Space Grotesk';font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint-dim);font-weight:600;display:flex;align-items:center;gap:8px;}
-  .eyebrow::before{content:'';width:16px;height:1px;background:var(--mint-dim);display:inline-block;}
-  section{padding:96px 0;}
-  @media(max-width:720px){section{padding:60px 0;}.wrap{padding:0 20px;}}
+  section{padding:88px 0;}
+  @media(max-width:720px){section{padding:56px 0;}.wrap{padding:0 20px;}}
 
   header{position:sticky;top:0;z-index:50;background:rgba(9,9,86,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark);}
   .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
   .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;color:#fff;}
   .navlinks{display:flex;gap:36px;font-size:.92rem;color:#c9cbf0;}
+  .navlinks a{transition:color .2s;}
   .navlinks a:hover,.navlinks a.active{color:var(--mint);}
-  .nav-cta{background:var(--mint);color:var(--navy);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:100px;}
+  .nav-cta{background:var(--mint);color:var(--navy);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:100px;transition:transform .2s,box-shadow .2s;white-space:nowrap;}
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(113,255,204,.35);}
   @media(max-width:900px){.navlinks{display:none;}}
 
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:100px;font-weight:700;font-size:.92rem;font-family:'Space Grotesk';transition:transform .2s,box-shadow .2s;}
+  .btn{display:inline-flex;align-items:center;padding:15px 28px;border-radius:100px;font-weight:700;font-size:.95rem;font-family:'Space Grotesk';transition:transform .2s,box-shadow .2s;}
   .btn-primary{background:var(--mint);color:var(--navy);}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(113,255,204,.35);}
-  .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line-dark);}
-  .btn-ghost:hover{border-color:var(--mint);color:var(--mint);}
+  .btn-navy{background:var(--navy);color:#fff;}
+  .btn-navy:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(9,9,86,.25);}
+  .link{font-family:'Space Grotesk';font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px;}
 
-  .pagehero{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:90px 0 70px;}
-  .pagehero .eyebrow{color:var(--mint);}
-  .pagehero .eyebrow::before{background:var(--mint);}
-  .pagehero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.6rem);margin:16px 0 18px;max-width:700px;}
-  .pagehero p{color:#c9cbf0;max-width:560px;font-size:1.02rem;margin-bottom:30px;}
-  .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
+  /* HERO */
+  .hero{background:var(--navy);color:#fff;padding:0;overflow:hidden;position:relative;}
+  .hero-grid{display:block;min-height:520px;}
+  .hero-copy{padding:88px 0 72px;display:flex;flex-direction:column;justify-content:center;min-height:520px;max-width:600px;position:relative;z-index:2;}
+  .hero h1{color:#fff;font-size:clamp(2.4rem,5vw,4rem);line-height:1.04;margin-bottom:22px;}
+  .hero h1 em{font-style:normal;color:var(--mint);}
+  .hero-sub{color:#c9cbf0;font-size:1.12rem;max-width:440px;margin-bottom:34px;}
+  .cta-row{display:flex;gap:24px;flex-wrap:wrap;align-items:center;}
+  .hero .link{color:#fff;}
+  .hero .link:hover{color:var(--mint);}
+  .next-class{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-dark);display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;font-size:.95rem;color:#c9cbf0;min-height:58px;}
+  .next-class b{color:#fff;font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;}
+  .next-class .mono{color:var(--mint);font-size:.9rem;}
+  .next-class a{color:var(--mint);font-weight:600;border-bottom:1px solid var(--mint);}
+  .hero-photo{position:absolute;top:0;bottom:0;right:max(0px,calc((100% - 1180px)/2 + 32px));width:min(46%,540px);}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 88%,transparent 100%);}
+    @media(max-width:900px){
+    .hero-grid{min-height:0;}
+    .hero-copy{padding:56px 0 40px;min-height:0;max-width:none;}
+    .hero-photo{position:relative;right:auto;width:auto;height:440px;margin:0 -20px;}
+    .hero-photo img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 25%);mask-image:linear-gradient(180deg,transparent 0,#000 25%);}
+  }
 
-  .temas h2{font-size:clamp(1.6rem,3vw,2.1rem);margin:16px 0 40px;}
-  .tema-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  @media(max-width:860px){.tema-row{grid-template-columns:1fr;}}
-  .tema-card{border:1px solid var(--line);border-radius:16px;padding:30px;}
-  .tema-icon{width:44px;height:44px;border-radius:12px;background:var(--navy);color:var(--mint);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:18px;}
-  .tema-card h3{font-size:1.05rem;margin-bottom:10px;}
-  .tema-card p{color:var(--slate);font-size:.9rem;}
+  /* TRUST */
+  .trust{background:var(--fog);border-bottom:1px solid var(--line);}
+  .trust-inner{display:flex;align-items:center;gap:36px;flex-wrap:wrap;padding-top:24px;padding-bottom:24px;font-size:.9rem;color:var(--slate);}
+  .trust-inner span.n{font-family:'Space Grotesk';font-weight:600;color:#7a83a3;}
+  .trust-inner .lab{font-weight:600;color:var(--slate);}
 
-  .formatos{background:var(--fog);}
-  .formatos h2{font-size:clamp(1.6rem,3vw,2.1rem);margin:16px 0 40px;}
-  .formato-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-  @media(max-width:760px){.formato-row{grid-template-columns:1fr;}}
-  .formato-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:32px;}
-  .formato-card .tag{font-family:'Space Grotesk';font-size:.72rem;font-weight:700;color:var(--mint-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;display:block;}
-  .formato-card h3{font-size:1.15rem;margin-bottom:12px;}
-  .formato-card p{color:var(--slate);font-size:.92rem;}
+  /* FAQ */
+  .faq{background:var(--fog);}
+  .faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px;}
+  .faq h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;}
+  .qs details{border-bottom:1px solid var(--line);padding:18px 0;}
+  .qs details:first-child{border-top:1px solid var(--line);}
+  .qs summary{cursor:pointer;font-family:'Space Grotesk';font-weight:600;color:var(--navy);font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:16px;}
+  .qs summary::-webkit-details-marker{display:none;}
+  .qs summary::after{content:'+';font-size:1.4rem;line-height:1;color:var(--slate);}
+  .qs details[open] summary::after{content:'\2212';}
+  .qs p{margin-top:10px;color:var(--slate);max-width:560px;}
+  @media(max-width:900px){.faq-grid{grid-template-columns:1fr;gap:28px;}}
 
-  .prova blockquote{font-family:'Space Grotesk';font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:500;max-width:780px;margin:0 auto 20px;line-height:1.4;border-left:3px solid var(--terracota);padding-left:24px;text-align:left;}
-  .prova{background:var(--navy);color:#fff;}
-  .prova .wrap{display:flex;flex-direction:column;align-items:center;}
-  .prova cite{font-style:normal;color:#8b8fd6;font-size:.9rem;}
-  .prova-note{background:var(--fog);border-radius:14px;padding:24px 28px;margin-top:44px;max-width:780px;text-align:left;}
-  .prova-note p{color:var(--slate);font-size:.9rem;}
 
-  .form-section{background:var(--fog);}
-  .form-wrap{max-width:640px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:44px;}
-  .form-wrap h2{font-size:1.5rem;margin-bottom:8px;}
-  .form-wrap>p{color:var(--slate);font-size:.92rem;margin-bottom:28px;}
-  .field{margin-bottom:18px;}
-  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
-  .field input,.field select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Inter';font-size:.92rem;background:#fff;}
-  .field input:focus,.field select:focus{outline:2px solid var(--mint-dim);border-color:transparent;}
-  .form-wrap .btn{width:100%;justify-content:center;background:var(--navy);color:#fff;margin-top:8px;}
-  .form-wrap .btn:hover{background:var(--navy-2);}
 
+  /* DIFERENCIAL */
+  .diff{background:var(--fog);padding:72px 0;}
+  .diff-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;}
+  .diff h2{font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.12;}
+  .diff-list>div{padding:16px 0;border-top:1px solid var(--line);}
+  .diff-list>div:last-child{border-bottom:1px solid var(--line);}
+  .diff-list b{display:block;font-family:'Space Grotesk';font-size:1.12rem;color:var(--navy);font-weight:600;}
+  .diff-list span{color:var(--slate);font-size:.94rem;}
+  @media(max-width:860px){.diff-grid{grid-template-columns:1fr;gap:28px;}.diff{padding:56px 0;}}
+
+  .why{background:var(--navy);color:#fff;padding:72px 0;}
+  .why-in{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center;}
+  .why h2{color:#fff;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.12;}
+  .why p{color:#c9cbf0;font-size:1.05rem;max-width:520px;}
+  @media(max-width:860px){.why-in{grid-template-columns:1fr;gap:20px;}.why{padding:56px 0;}}
+
+  /* COMBO */
+  .combo-sec{padding-top:72px;padding-bottom:24px;}
+  .combo{background:var(--navy);color:#fff;border-radius:24px;padding:44px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;}
+  .combo .tag{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--mint);margin-bottom:14px;display:block;}
+  .combo h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.12;margin-bottom:14px;}
+  .combo p{color:#c9cbf0;margin-bottom:20px;}
+  .combo ul{list-style:none;}
+  .combo li{padding:10px 0;border-top:1px solid var(--line-dark);font-size:.94rem;color:#e6e7fa;}
+  .combo-side{background:rgba(255,255,255,.06);border:1px solid var(--line-dark);border-radius:16px;padding:28px;}
+  .combo-side .old{color:#8b8fd6;text-decoration:line-through;font-size:.88rem;}
+  .combo-side .price{font-family:'IBM Plex Mono',monospace;font-size:2.4rem;font-weight:700;color:var(--mint);line-height:1.2;}
+  .combo-side .meta{color:#c9cbf0;font-size:.86rem;margin:12px 0 20px;}
+  .combo-side .next{font-size:.88rem;color:#fff;margin-bottom:18px;min-height:22px;}
+  .combo-side .btn{width:100%;justify-content:center;}
+  @media(max-width:860px){.combo{grid-template-columns:1fr;padding:28px;}}
+
+  /* LISTA DE CURSOS */
+  .list-sec{padding-top:56px;}
+  .list-sec h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:28px;}
+  .crow{display:grid;grid-template-columns:1.4fr .8fr auto;gap:28px;align-items:center;padding:26px 8px;border-top:1px solid var(--line);}
+  .crow:last-of-type{border-bottom:1px solid var(--line);}
+  .crow h3{font-size:1.25rem;margin-bottom:4px;}
+  .crow p{color:var(--slate);font-size:.93rem;max-width:460px;}
+  .c-meta{display:flex;flex-direction:column;gap:4px;font-size:.88rem;color:var(--slate);}
+  .c-meta .next{color:var(--navy);font-weight:600;}
+  .c-buy{display:flex;align-items:center;gap:20px;}
+  .c-buy b{font-family:'IBM Plex Mono',monospace;font-size:1.15rem;color:var(--navy);}
+  @media(max-width:860px){.crow{grid-template-columns:1fr;gap:14px;padding:24px 0;}.c-buy{justify-content:space-between;}}
+
+  .gatilho{background:var(--fog);border-radius:18px;padding:32px 34px;margin-top:48px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+  .gatilho h3{font-size:1.15rem;margin-bottom:6px;}
+  .gatilho p{color:var(--slate);font-size:.92rem;max-width:560px;}
+  .faq{background:var(--paper);}
+  .final{text-align:center;background:var(--fog);}
+  .final h2{font-size:clamp(1.9rem,3.4vw,2.8rem);margin-bottom:12px;}
+  .final p{color:var(--slate);margin-bottom:26px;}
   footer{background:var(--navy-3);color:#8b8fd6;padding:56px 0 30px;font-size:.86rem;}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
   .foot-grid h5{color:#fff;font-family:'Space Grotesk';font-size:.85rem;margin-bottom:14px;}
-  .foot-grid a{display:block;color:#8b8fd6;margin-bottom:9px;}
+  .foot-grid a{display:block;color:#8b8fd6;margin-bottom:9px;transition:color .2s;}
   .foot-grid a:hover{color:var(--mint);}
   .foot-bottom{border-top:1px solid var(--line-dark);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 </style>
+<style>
+.facts{padding:64px 0 24px;}
+.facts>.wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+.fact{border-top:2px solid var(--navy);padding-top:16px;}
+.fact b{display:block;font-family:'Space Grotesk';font-size:1.3rem;color:var(--navy);margin-bottom:6px;}
+.fact b.mono{font-family:'IBM Plex Mono',monospace;font-size:2rem;}
+.fact span{color:var(--slate);font-size:.94rem;}
+.temas h2,.fmt h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:28px;}
+.fmt{background:var(--fog);}
+.prow{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;padding:22px 0;border-top:1px solid var(--line);}
+.prow:last-child{border-bottom:1px solid var(--line);}
+.prow h3{font-size:1.25rem;}
+.prow p{color:var(--slate);max-width:500px;}
+.form-section{background:var(--paper);}
+.pform{max-width:620px;margin:0 auto;background:var(--fog);border-radius:24px;padding:44px;}
+.pform h2{font-size:clamp(1.7rem,3vw,2.2rem);margin-bottom:10px;}
+.pform>p{color:var(--slate);margin-bottom:24px;}
+.pform label{display:block;font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:16px;}
+.pform input,.pform select{display:block;width:100%;margin-top:6px;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-weight:400;background:#fff;color:var(--ink);}
+.pform input:focus,.pform select:focus{outline:2px solid var(--mint-dim);border-color:transparent;}
+.pform button{width:100%;justify-content:center;border:0;cursor:pointer;margin-top:8px;}
+@media(max-width:860px){.facts>.wrap{grid-template-columns:1fr;gap:24px;}.prow{grid-template-columns:1fr;gap:6px;}.pform{padding:28px 22px;}}
+</style>
 </head>
-<body>
+<body class="page-cursos">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KT66K5ZP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -111,101 +188,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
   <div class="wrap nav">
     <a href="index.html" class="logo"><img src="logo-icon-white.png" alt="AJ Santos" style="height:34px;width:auto;">AJ SANTOS</a>
-    <nav class="navlinks">
+        <nav class="navlinks">
       <a href="cursos.html">Cursos</a>
       <a href="ebooks.html">Biblioteca</a>
       <a href="blog.html">Blog</a>
       <a href="sobre.html">Sobre</a>
       <a href="palestras.html" class="active">Palestras</a>
-      <a href="gestao.html" style="opacity:.75;font-size:.85rem;">Gestão</a>
+      <a href="gestao.html" style="color:var(--mint);font-weight:600;">Gestão</a>
     </nav>
-    <a href="cursos.html" class="nav-cta">Ver cursos</a>
+    <a href="cursos.html" class="nav-cta">Ver turmas</a>
   </div>
 </header>
 
-<section class="pagehero">
-  <div class="wrap">
-    <div class="eyebrow">Palestras & Workshops</div>
-    <h1>Levo pro palco do seu evento o que eu aplico na operação, não teoria de slide.</h1>
-    <p>17 anos gerindo tráfego pago e IA pra PME. Falo pra times comerciais, associações empresariais e eventos do Simples Nacional sobre o que realmente funciona no dia a dia.</p>
-    <div class="cta-row">
-      <a href="#formulario" class="btn btn-primary">Solicitar proposta →</a>
-      <a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20uma%20palestra" target="_blank" class="btn btn-ghost">Falar no WhatsApp</a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Levo ao seu evento o que <em>eu aplico na operação.</em></h1>
+      <p class="hero-sub">Tráfego pago, dados e IA para plateias de empresários, times comerciais e associações. Sem teoria de slide.</p>
+      <div class="cta-row">
+        <a href="#formulario" class="btn btn-primary">Solicitar proposta</a>
+        <a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20uma%20palestra" target="_blank" class="link" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_whatsapp',event_category:'conversao',event_label:'palestras_hero'});">Falar no WhatsApp</a>
+      </div>
     </div>
+    <div class="hero-photo"><img src="aj-palestra.webp" alt="AJ Santos ministrando palestra"></div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="wrap">
+    <div class="fact"><b class="mono">2011</b><span>primeira palestra. Desde então, eventos, aulas e associações.</span></div>
+    <div class="fact"><b>40 a 60 minutos</b><span>de apresentação, com perguntas ao final.</span></div>
+    <div class="fact"><b>Presencial ou online</b><span>Em qualquer cidade, conforme o evento.</span></div>
   </div>
 </section>
 
 <section class="temas">
   <div class="wrap">
-    <div class="eyebrow">Temas</div>
-    <h2>O que eu levo pro seu evento</h2>
-    <div class="tema-row">
-      <div class="tema-card">
-        <div class="tema-icon">🤖</div>
-        <h3>IA aplicada à rotina da PME</h3>
-        <p>Como usar inteligência artificial pra ganhar tempo em vendas, atendimento e gestão, sem depender de equipe técnica.</p>
-      </div>
-      <div class="tema-card">
-        <div class="tema-icon">🎯</div>
-        <h3>Tráfego pago sem desperdício</h3>
-        <p>Os erros mais comuns que fazem PME queimar verba em anúncios, e como estruturar campanhas com previsibilidade.</p>
-      </div>
-      <div class="tema-card">
-        <div class="tema-icon">📊</div>
-        <h3>Dados e decisão no Simples Nacional</h3>
-        <p>Como ler métricas de verdade (CAC, ROAS, margem) pra tomar decisão no porte de empresa que não tem um analista dedicado.</p>
-      </div>
-    </div>
+    <h2>O que levo para o seu evento.</h2>
+    <div class="prow"><h3>IA aplicada à rotina da PME</h3><p>Como usar inteligência artificial para ganhar tempo em vendas, atendimento e gestão, sem depender de equipe técnica.</p></div>
+    <div class="prow"><h3>Tráfego pago sem desperdício</h3><p>Os erros que fazem a PME queimar verba em anúncios e como estruturar campanhas com previsibilidade.</p></div>
+    <div class="prow"><h3>Dados e decisão no Simples Nacional</h3><p>Como ler CAC, ROAS e margem para decidir sem ter um analista dedicado.</p></div>
   </div>
 </section>
 
-<section class="formatos">
+<section class="fmt">
   <div class="wrap">
-    <div class="eyebrow">Formatos</div>
-    <h2>Como a palestra pode acontecer</h2>
-    <div class="formato-row">
-      <div class="formato-card">
-        <span class="tag">Formato 1</span>
-        <h3>Palestra</h3>
-        <p>Apresentação de 40 a 60 minutos, com espaço pra perguntas ao final. Formato mais comum pra eventos, congressos e encontros de associações empresariais.</p>
-      </div>
-      <div class="formato-card">
-        <span class="tag">Formato 2</span>
-        <h3>Palestra + Workshop de equipe</h3>
-        <p>A palestra abre o tema, seguida de um workshop prático com a equipe do contratante, aplicando o conteúdo direto na realidade do negócio deles.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="prova">
-  <div class="wrap">
-    <blockquote>"Prefiro mostrar o que já testei na prática do que repetir teoria de curso. Quem assiste sai com algo pra aplicar na segunda-feira."</blockquote>
-    <cite>— AJ Santos</cite>
-    <div class="prova-note">
-      <p><strong>Nota:</strong> artigos publicados, fotos e vídeos de palco, e depoimentos de organizadores de eventos anteriores entram aqui assim que estiverem disponíveis.</p>
-    </div>
+    <h2>Dois formatos.</h2>
+    <div class="prow"><h3>Palestra</h3><p>40 a 60 minutos, com espaço para perguntas. O formato mais usado em eventos, congressos e encontros de associações empresariais.</p></div>
+    <div class="prow"><h3>Palestra e workshop de equipe</h3><p>A palestra abre o tema e o workshop aplica o conteúdo na realidade do negócio da equipe contratante.</p></div>
   </div>
 </section>
 
 <section class="form-section" id="formulario">
   <div class="wrap">
-    <div class="form-wrap">
-      <h2>Solicite uma proposta</h2>
-      <p>Me conta um pouco sobre o evento e eu retorno com disponibilidade e formato sugerido.</p>
-      <div class="field"><label>Nome do evento</label><input type="text" placeholder="Nome do evento ou empresa organizadora"></div>
-      <div class="field"><label>Seu nome e contato</label><input type="text" placeholder="Nome e WhatsApp ou e-mail"></div>
-      <div class="field"><label>Público esperado</label><input type="text" placeholder="Ex: 80 empresários do setor de varejo"></div>
-      <div class="field"><label>Data prevista</label><input type="text" placeholder="Data ou período do evento"></div>
-      <div class="field">
-        <label>Formato</label>
-        <select>
-          <option>Cidade / presencial</option>
-          <option>Online</option>
-          <option>Ainda não defini</option>
-        </select>
-      </div>
-      <a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20quero%20solicitar%20uma%20proposta%20de%20palestra" target="_blank" class="btn">Enviar solicitação →</a>
+    <div class="pform">
+      <h2>Solicite uma proposta.</h2>
+      <p>Conte sobre o evento. A resposta vem com disponibilidade e formato sugerido, direto no seu WhatsApp.</p>
+      <form id="pf">
+        <label>Evento ou organização<input name="evento" required placeholder="Nome do evento ou da empresa organizadora"></label>
+        <label>Seu nome<input name="nome" required placeholder="Como posso te chamar"></label>
+        <label>Público esperado<input name="publico" placeholder="Ex: 80 empresários do varejo"></label>
+        <label>Data ou período<input name="data" placeholder="Data prevista do evento"></label>
+        <label>Formato do evento<select name="formato"><option>Presencial</option><option>Online</option><option>Ainda não defini</option></select></label>
+        <button type="submit" class="btn btn-navy">Enviar pelo WhatsApp</button>
+      </form>
     </div>
   </div>
 </section>
@@ -222,7 +268,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais" target="_blank" id="wa-float" aria-label="Falar no WhatsApp" onclick="if(typeof gtag==='function'){gtag('event','clique_whatsapp',{event_category:'conversao',event_label:'botao_flutuante'});}">
+
+<a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais" target="_blank" id="wa-float" aria-label="Falar no WhatsApp" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_whatsapp',event_category:'conversao',event_label:'botao_flutuante'});">
   <svg viewBox="0 0 24 24" width="28" height="28" fill="#090956"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.61-.07.16-.19.7-.82.88-1.1.19-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.46.21.53.33.07.12.07.68-.17 1.36z"/></svg>
 </a>
 <style>
@@ -237,5 +284,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 @media(max-width:600px){#wa-float{width:52px;height:52px;bottom:18px;right:18px;}}
 </style>
 
+
+<script>
+document.getElementById('pf').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=new FormData(e.target);
+  var t='Olá, quero solicitar uma proposta de palestra.\n'
+   +'Evento: '+f.get('evento')+'\nNome: '+f.get('nome')
+   +'\nPúblico: '+(f.get('publico')||'a definir')+'\nData: '+(f.get('data')||'a definir')
+   +'\nFormato: '+f.get('formato');
+  window.dataLayer=window.dataLayer||[];
+  dataLayer.push({'event':'solicitar_proposta_palestra',event_category:'conversao'});
+  setTimeout(function(){window.open('https://wa.me/5511943592160?text='+encodeURIComponent(t),'_blank');},150);
+});
+</script>
 </body>
 </html>
