@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>Biblioteca de Ebooks — AJ Santos</title>
 <meta property="og:title" content="AJ Santos — Biblioteca de Ebooks">
 <meta property="og:description" content="Guias práticos de gestão, IA e finanças para aplicar hoje na sua empresa, a partir de R$ 15.">
-<meta property="og:image" content="https://ajsantos.pro.br/logo-full.png">
+<meta property="og:image" content="https://ajsantos.pro.br/og-aj.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Guias práticos de gestão, IA e finanças para aplicar hoje na sua empresa, a partir de R$ 15.">
@@ -21,84 +21,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#1E1E2A;
-    --mint:#71ffcc;--mint-dim:#3fdba8;--paper:#ffffff;--fog:#F4F4F0;
-    --slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);
-  --terracota:#C96442;}
-  body.page-ebooks{--mint-dim:#E8B34D;}
+  :root{--navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#1E1E2A;--mint:#71ffcc;--mint-dim:#3fdba8;--paper:#fff;--fog:#F4F4F0;--slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);--terracota:#C96442;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  .mono{font-family:'IBM Plex Mono',monospace;}
+  html{scroll-behavior:smooth;}
   body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;color:var(--navy);}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.015em;color:var(--navy);}
   a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-  .eyebrow{font-family:'Space Grotesk';font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mint-dim);font-weight:600;display:flex;align-items:center;gap:8px;}
-  .eyebrow::before{content:'';width:16px;height:1px;background:var(--mint-dim);display:inline-block;}
-  section{padding:96px 0;}
-  @media(max-width:720px){section{padding:60px 0;}.wrap{padding:0 20px;}}
+  section{padding:88px 0;}
+  @media(max-width:720px){section{padding:56px 0;}.wrap{padding:0 20px;}}
 
   header{position:sticky;top:0;z-index:50;background:rgba(9,9,86,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark);}
   .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
   .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;color:#fff;}
-  .logo .dot{width:8px;height:8px;background:var(--mint);border-radius:50%;box-shadow:0 0 10px var(--mint);}
   .navlinks{display:flex;gap:36px;font-size:.92rem;color:#c9cbf0;}
+  .navlinks a{transition:color .2s;}
   .navlinks a:hover,.navlinks a.active{color:var(--mint);}
-  .nav-cta{background:var(--mint);color:var(--navy);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:100px;}
+  .nav-cta{background:var(--mint);color:var(--navy);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:100px;transition:transform .2s,box-shadow .2s;white-space:nowrap;}
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(113,255,204,.35);}
   @media(max-width:900px){.navlinks{display:none;}}
 
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:100px;font-weight:700;font-size:.92rem;font-family:'Space Grotesk';transition:transform .2s,box-shadow .2s;}
+  .btn{display:inline-flex;align-items:center;padding:15px 28px;border-radius:100px;font-weight:700;font-size:.95rem;font-family:'Space Grotesk';transition:transform .2s,box-shadow .2s;}
   .btn-primary{background:var(--mint);color:var(--navy);}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(113,255,204,.35);}
+  .btn-navy{background:var(--navy);color:#fff;}
+  .btn-navy:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(9,9,86,.25);}
+  .link{font-family:'Space Grotesk';font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px;}
 
-  .pagehero{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:90px 0 70px;}
-  .pagehero .eyebrow{color:var(--mint);}
-  .pagehero .eyebrow::before{background:var(--mint);}
-  .pagehero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem);margin:16px 0 18px;max-width:680px;}
-  .pagehero p{color:#c9cbf0;max-width:560px;font-size:1.03rem;}
 
-  .catalog{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  @media(max-width:820px){.catalog{grid-template-columns:1fr;}}
-  .ebook-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;}
-  .ebook-cover{
-    aspect-ratio:800/420;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
-    position:relative;display:flex;align-items:center;justify-content:center;
-  }
-  .ebook-cover .mock{width:110px;height:150px;background:var(--paper);border-radius:6px;box-shadow:0 20px 40px rgba(0,0,0,.35);
-    display:flex;flex-direction:column;padding:14px;transform:rotate(-4deg);}
-  .ebook-cover .mock .bar{height:6px;background:var(--mint-dim);border-radius:3px;margin-bottom:8px;width:70%;}
-  .ebook-cover .mock .ln{height:4px;background:var(--line);border-radius:2px;margin-bottom:6px;}
-  .ebook-body{padding:28px;}
-  .ebook-body .label{font-size:.72rem;color:var(--mint-dim);font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
-  .ebook-body h3{font-size:1.3rem;margin:8px 0 12px;}
-  .ebook-body p{color:var(--slate);font-size:.93rem;margin-bottom:14px;}
-  .ebook-body ul{list-style:none;font-size:.88rem;color:var(--ink);margin-bottom:20px;}
-  .ebook-body ul li{padding-left:18px;position:relative;margin-bottom:7px;}
-  .ebook-body ul li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--mint-dim);border-radius:50%;}
-  .ebook-foot{display:flex;align-items:center;justify-content:space-between;}
-  .price{font-family:'Space Grotesk';font-weight:700;font-size:1.3rem;color:var(--navy);}
-  .buy{background:var(--navy);color:#fff;padding:12px 20px;border-radius:100px;font-size:.85rem;font-weight:700;font-family:'Space Grotesk';}
-  .buy:hover{background:var(--navy-2);}
+  /* HERO */
+  .hero{background:var(--navy);color:#fff;padding:96px 0 80px;}
+  .hero h1{color:#fff;font-size:clamp(2.4rem,5vw,4rem);line-height:1.04;margin-bottom:18px;max-width:760px;}
+  .hero h1 em{font-style:normal;color:var(--mint);}
+  .hero-sub{color:#c9cbf0;font-size:1.12rem;max-width:520px;}
+  .hero-stats{display:flex;gap:36px;margin-top:34px;flex-wrap:wrap;color:#c9cbf0;font-size:.95rem;}
+  .hero-stats b{display:block;font-family:'IBM Plex Mono',monospace;color:var(--mint);font-size:1.3rem;}
 
-  .bonus{background:var(--fog);border-radius:18px;padding:36px 34px;margin-top:56px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+  /* LISTA */
+  .shelf{padding-top:72px;}
+  .book-row{display:grid;grid-template-columns:340px 1fr auto;gap:36px;align-items:center;padding:30px 0;border-top:1px solid var(--line);}
+  .book-row:last-of-type{border-bottom:1px solid var(--line);}
+  .book-row img{width:100%;aspect-ratio:800/420;object-fit:cover;border-radius:12px;box-shadow:0 12px 32px rgba(9,9,86,.14);}
+  .book-row .cat{font-size:.85rem;color:var(--slate);}
+  .book-row h2{font-size:1.5rem;line-height:1.15;margin:4px 0 8px;}
+  .book-row p{color:var(--slate);font-size:.96rem;max-width:480px;}
+  .book-buy{display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+  .book-buy b{font-family:'IBM Plex Mono',monospace;font-size:1.5rem;color:var(--navy);}
+  @media(max-width:900px){.book-row{grid-template-columns:1fr;gap:16px;}.book-buy{flex-direction:row;align-items:center;justify-content:space-between;}}
+
+  .bonus{background:var(--fog);border-radius:18px;padding:32px 34px;margin-top:48px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
   .bonus h3{font-size:1.15rem;margin-bottom:6px;}
   .bonus p{color:var(--slate);font-size:.92rem;max-width:560px;}
-
-  .faq{background:var(--fog);}
-  .faq h2{font-size:clamp(1.6rem,3vw,2rem);margin-bottom:36px;}
-  .faq-item{border-bottom:1px solid var(--line);padding:22px 0;}
-  .faq-item h4{font-size:1.02rem;margin-bottom:8px;color:var(--ink);}
-  .faq-item p{color:var(--slate);font-size:.92rem;}
-
-  .final-cta{text-align:center;}
-  .final-cta h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px;}
-  .final-cta p{color:var(--slate);margin-bottom:28px;}
+  .final{text-align:center;background:var(--fog);}
+  .final h2{font-size:clamp(1.9rem,3.4vw,2.8rem);margin-bottom:12px;}
+  .final p{color:var(--slate);margin-bottom:26px;}
+  /* FAQ */
+  .faq{background:var(--paper);}
+  .faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px;}
+  .faq h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;}
+  .qs details{border-bottom:1px solid var(--line);padding:18px 0;}
+  .qs details:first-child{border-top:1px solid var(--line);}
+  .qs summary{cursor:pointer;font-family:'Space Grotesk';font-weight:600;color:var(--navy);font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:16px;}
+  .qs summary::-webkit-details-marker{display:none;}
+  .qs summary::after{content:'+';font-size:1.4rem;line-height:1;color:var(--slate);}
+  .qs details[open] summary::after{content:'\2212';}
+  .qs p{margin-top:10px;color:var(--slate);max-width:560px;}
+  @media(max-width:900px){.faq-grid{grid-template-columns:1fr;gap:28px;}}
 
   footer{background:var(--navy-3);color:#8b8fd6;padding:56px 0 30px;font-size:.86rem;}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
   .foot-grid h5{color:#fff;font-family:'Space Grotesk';font-size:.85rem;margin-bottom:14px;}
-  .foot-grid a{display:block;color:#8b8fd6;margin-bottom:9px;}
+  .foot-grid a{display:block;color:#8b8fd6;margin-bottom:9px;transition:color .2s;}
   .foot-grid a:hover{color:var(--mint);}
   .foot-bottom{border-top:1px solid var(--line-dark);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 </style>
@@ -118,125 +114,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="blog.html">Blog</a>
       <a href="sobre.html">Sobre</a>
       <a href="palestras.html">Palestras</a>
-      <a href="gestao.html" style="opacity:.75;font-size:.85rem;">Gestão</a>
+      <a href="gestao.html" style="color:var(--mint);font-weight:600;">Gestão</a>
     </nav>
-    <a href="cursos.html" class="nav-cta">Ver cursos</a>
+    <a href="cursos.html" class="nav-cta">Ver turmas</a>
   </div>
 </header>
 
-<section class="pagehero">
+<section class="hero">
   <div class="wrap">
-    <div class="eyebrow">Ferramentas de bolso</div>
-    <h1>Respostas práticas e checklists antidesperdício para a sua rotina.</h1>
-    <p>Sem teorias de 300 páginas. Guias executivos para baixar hoje, aplicar no mesmo dia e cortar gargalos de tempo e dinheiro.</p>
+    <h1>Guias para <em>aplicar hoje.</em></h1>
+    <p class="hero-sub">Sem teoria de 300 páginas. Baixe, aplique no mesmo dia e corte gargalos de tempo e dinheiro.</p>
   </div>
 </section>
 
-<section>
+<section class="shelf">
   <div class="wrap">
-    <div class="catalog">
-      <div class="ebook-card">
-        <div class="ebook-cover" style="background:none;padding:0;">
-          <img src="ebook-ia-express.jpg" alt="Capa: IA Express para PMEs" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="ebook-body">
-          <div class="label">Inteligência Artificial</div>
-          <h3>IA Express para PMEs</h3>
-          <p>Resolva urgências e tome decisões rápidas no dia a dia da sua empresa com 15 prompts práticos do framework SKEFO.</p>
-          <ul>
-            <li>Otimize finanças, vendas, atendimento e rotinas em minutos</li>
-            <li>Sem teoria, direto pra aplicação</li>
-            <li>Resultados imediatos na gestão do negócio</li>
-          </ul>
-          <div class="ebook-foot">
-            <span class="price">R$ 15</span>
-            <a href="https://pay.kiwify.com.br/lCvIN7g" class="buy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'ia_express',event_category:'conversao'});">Baixar guia →</a>
-          </div>
-        </div>
-      </div>
-      <div class="ebook-card">
-        <div class="ebook-cover" style="background:none;padding:0;">
-          <img src="ebook-eficiencia-operacional.jpg" alt="Capa: Manual de Eficiência Operacional" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="ebook-body">
-          <div class="label">Gestão & Processos</div>
-          <h3>Manual de Eficiência Operacional</h3>
-          <p>Padronize processos e elimine o caos nos setores da sua PME com 25 prompts estratégicos SKEFO.</p>
-          <ul>
-            <li>Cobrança, vendas, onboarding, estoque e retenção</li>
-            <li>Alinhe a equipe com rotinas claras</li>
-            <li>Crie uma operação previsível</li>
-          </ul>
-          <div class="ebook-foot">
-            <span class="price">R$ 30</span>
-            <a href="https://pay.kiwify.com.br/FfkqdOm" class="buy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'eficiencia_operacional',event_category:'conversao'});">Baixar manual →</a>
-          </div>
-        </div>
-      </div>
-      <div class="ebook-card">
-        <div class="ebook-cover" style="background:none;padding:0;">
-          <img src="ebook-playbook-ia-gestao.jpg" alt="Capa: O Playbook Avançado de Gestão com IA" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="ebook-body">
-          <div class="label">Governança & Gestão</div>
-          <h3>O Playbook Avançado de Gestão com IA</h3>
-          <p>Domine decisões complexas entre finanças, RH, vendas, marketing e jurídico no Simples Nacional.</p>
-          <ul>
-            <li>50 prompts de alta densidade analítica</li>
-            <li>Simule cenários de escala, margem e corte de custos</li>
-            <li>O mapa tático pra governança do seu negócio</li>
-          </ul>
-          <div class="ebook-foot">
-            <span class="price">R$ 60</span>
-            <a href="https://pay.kiwify.com.br/vr27xkN" class="buy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'playbook_ia_gestao',event_category:'conversao'});">Baixar guia →</a>
-          </div>
-        </div>
-      </div>
-      <div class="ebook-card">
-        <div class="ebook-cover" style="background:none;padding:0;">
-          <img src="ebook-codigo-do-lucro.jpg" alt="Capa: O Código do Lucro" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="ebook-body">
-          <div class="label">Tráfego Pago & Margem</div>
-          <h3>O Código do Lucro</h3>
-          <p>Pare de pagar o imposto do amadorismo em anúncios. O método que uso há 17 anos gerindo tráfego pago pra PME no Simples Nacional.</p>
-          <ul>
-            <li>Os 4 erros que destroem margem em campanhas de PME</li>
-            <li>Como calcular CPL, CPA, ROAS e LTV do seu negócio</li>
-            <li>PDF, 4 capítulos + checklists práticos em cada um</li>
-          </ul>
-          <div class="ebook-foot">
-            <span class="price">R$ 97</span>
-            <a href="https://pay.kiwify.com.br/CT9vadk" class="buy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'codigo_do_lucro',event_category:'conversao'});">Baixar guia →</a>
-          </div>
-        </div>
-      </div>
+    <div class="book-row">
+      <img src="ebook-ia-express.jpg" alt="Capa: IA Express para PMEs" loading="lazy">
+      <div><span class="cat">Inteligência artificial</span><h2>IA Express para PMEs</h2><p>15 prompts práticos do framework SKEFO para resolver urgências e decidir rápido no dia a dia da empresa.</p></div>
+      <div class="book-buy"><b>R$ 15</b><a href="https://pay.kiwify.com.br/lCvIN7g" class="btn btn-navy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'ia_express',event_category:'conversao'});">Baixar guia</a></div>
+    </div>
+    <div class="book-row">
+      <img src="ebook-eficiencia-operacional.jpg" alt="Capa: Manual de Eficiência Operacional" loading="lazy">
+      <div><span class="cat">Gestão e processos</span><h2>Manual de Eficiência Operacional</h2><p>25 prompts SKEFO para padronizar cobrança, vendas, onboarding, estoque e retenção, e alinhar a equipe.</p></div>
+      <div class="book-buy"><b>R$ 30</b><a href="https://pay.kiwify.com.br/FfkqdOm" class="btn btn-navy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'eficiencia_operacional',event_category:'conversao'});">Baixar manual</a></div>
+    </div>
+    <div class="book-row">
+      <img src="ebook-playbook-ia-gestao.jpg" alt="Capa: O Playbook Avançado de Gestão com IA" loading="lazy">
+      <div><span class="cat">Governança e gestão</span><h2>O Playbook Avançado de Gestão com IA</h2><p>50 prompts para decisões entre finanças, RH, vendas, marketing e jurídico no Simples Nacional, com simulação de escala, margem e custos.</p></div>
+      <div class="book-buy"><b>R$ 60</b><a href="https://pay.kiwify.com.br/vr27xkN" class="btn btn-navy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'playbook_ia_gestao',event_category:'conversao'});">Baixar guia</a></div>
+    </div>
+    <div class="book-row">
+      <img src="ebook-codigo-do-lucro.jpg" alt="Capa: O Código do Lucro" loading="lazy">
+      <div><span class="cat">Tráfego pago e margem</span><h2>O Código do Lucro</h2><p>Os 4 erros que destroem a margem das campanhas de PME e como calcular CPL, CPA, ROAS e LTV. PDF com 4 capítulos e checklists.</p></div>
+      <div class="book-buy"><b>R$ 97</b><a href="https://pay.kiwify.com.br/CT9vadk" class="btn btn-navy" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_comprar_ebook',ebook:'codigo_do_lucro',event_category:'conversao'});">Baixar guia</a></div>
     </div>
 
     <div class="bonus">
       <div>
-        <h3>💡 Bônus de evolução</h3>
+        <h3>O valor do guia vira desconto no curso</h3>
         <p>O valor investido em qualquer ebook vira desconto garantido na inscrição de qualquer treinamento ao vivo ou na Imersão Híbrida de 8h.</p>
       </div>
-      <a href="cursos.html" class="btn btn-primary" style="background:var(--navy);color:#fff;">Ver treinamentos →</a>
+      <a href="cursos.html" class="btn btn-navy">Ver turmas</a>
     </div>
   </div>
 </section>
 
 <section class="faq">
-  <div class="wrap" style="max-width:760px;">
+  <div class="wrap faq-grid">
     <h2>Perguntas frequentes</h2>
-    <div class="faq-item"><h4>Como recebo o meu ebook?</h4><p>O acesso é imediato. Assim que o pagamento é confirmado na plataforma, você recebe o link de download direto no e‑mail.</p></div>
-    <div class="faq-item"><h4>Consigo aplicar sem equipe técnica?</h4><p>Sim. Todos os manuais foram escritos para o dono da PME e seus gestores, com passo a passo direto e sem jargão técnico.</p></div>
-    <div class="faq-item"><h4>Posso compartilhar com meu time?</h4><p>Sim. O material é seu, e foi pensado pra virar consulta rápida no dia a dia da equipe.</p></div>
+    <div class="qs">
+      <details><summary>Como recebo o meu ebook?</summary><p>O acesso é imediato. Assim que o pagamento é confirmado na plataforma, você recebe o link de download direto no e-mail.</p></details>
+      <details><summary>Consigo aplicar sem equipe técnica?</summary><p>Sim. Os manuais foram escritos para o dono da PME e seus gestores, com passo a passo direto e sem jargão técnico.</p></details>
+      <details><summary>Posso compartilhar com meu time?</summary><p>Sim. O material é seu e foi pensado para virar consulta rápida no dia a dia da equipe.</p></details>
+    </div>
   </div>
 </section>
 
-<section class="final-cta">
+<section class="final">
   <div class="wrap">
-    <h2>Quer ir além dos manuais?</h2>
-    <p>Tenha o acompanhamento ao vivo do AJ Santos nas turmas noturnas.</p>
-    <a href="cursos.html" class="btn btn-primary" style="background:var(--navy);color:#fff;">Ver agenda de cursos →</a>
+    <h2>Quer ir além dos guias?</h2>
+    <p>Aprenda ao vivo, à noite, nas turmas do AJ Santos.</p>
+    <a href="cursos.html" class="btn btn-navy">Ver próximas turmas</a>
   </div>
 </section>
 
