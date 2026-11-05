@@ -108,6 +108,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:980px){.lib-row{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:520px){.lib-row{grid-template-columns:1fr;}}
 
+
+
+  /* CALCULADORA */
+  .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .calc h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:12px;}
+  .calc .lead{color:var(--slate);max-width:460px;margin-bottom:28px;}
+  .inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .inputs label{display:flex;flex-direction:column;gap:6px;font-size:.84rem;color:var(--slate);font-weight:500;}
+  .inputs input{font:inherit;font-family:'IBM Plex Mono',monospace;font-size:1.05rem;color:var(--navy);padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;width:100%;}
+  .inputs input:focus{outline:2px solid var(--mint-dim);border-color:transparent;}
+  .result{background:var(--navy);color:#fff;border-radius:20px;padding:36px;}
+  .big{padding-bottom:24px;border-bottom:1px solid var(--line-dark);margin-bottom:8px;}
+  .big .mono{display:block;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:700;color:var(--mint);line-height:1.1;}
+  .big small{color:#c9cbf0;font-size:.9rem;}
+  .r-rows>div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line-dark);font-size:.92rem;color:#c9cbf0;}
+  .r-rows b{color:#fff;font-weight:600;white-space:nowrap;}
+  .r-msg{margin:18px 0 22px;font-size:.92rem;color:#c9cbf0;min-height:44px;}
+  .result .link{color:#fff;}
+  .result .link:hover{color:var(--mint);}
+  @media(max-width:900px){.calc-grid{grid-template-columns:1fr;gap:36px;}.result{padding:26px;}}
+  @media(max-width:420px){.inputs{grid-template-columns:1fr;}}
+
+  /* FAQ */
+  .faq{background:var(--fog);}
+  .faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px;}
+  .faq h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;}
+  .qs details{border-bottom:1px solid var(--line);padding:18px 0;}
+  .qs details:first-child{border-top:1px solid var(--line);}
+  .qs summary{cursor:pointer;font-family:'Space Grotesk';font-weight:600;color:var(--navy);font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:16px;}
+  .qs summary::-webkit-details-marker{display:none;}
+  .qs summary::after{content:'+';font-size:1.4rem;line-height:1;color:var(--slate);}
+  .qs details[open] summary::after{content:'\2212';}
+  .qs p{margin-top:10px;color:var(--slate);max-width:560px;}
+  @media(max-width:900px){.faq-grid{grid-template-columns:1fr;gap:28px;}}
+
+  /* GESTÃO */
+  .gestao-sec{background:var(--navy-3);color:#fff;}
+  .gestao-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center;}
+  .gestao-sec h2{color:#fff;font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:14px;}
+  .gestao-sec .lead{color:#c9cbf0;max-width:460px;margin-bottom:30px;}
+  .gestao-sec .link{color:#fff;}
+  .gestao-sec .link:hover{color:var(--mint);}
+  .g-list{border-top:1px solid var(--line-dark);}
+  .g-item{padding:18px 0;border-bottom:1px solid var(--line-dark);}
+  .g-item b{display:block;font-family:'Space Grotesk';font-size:1.08rem;color:#fff;font-weight:600;}
+  .g-item span{font-size:.9rem;color:#9ea2d8;}
+  .g-price{padding-top:18px;font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--mint);}
+  @media(max-width:900px){.gestao-grid{grid-template-columns:1fr;gap:36px;}}
+
   /* MANIFESTO */
   .manifesto{background:var(--navy);color:#fff;padding:0;position:relative;overflow:hidden;}
   .man-grid{display:block;min-height:440px;}
@@ -152,9 +201,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="blog.html">Blog</a>
       <a href="sobre.html">Sobre</a>
       <a href="palestras.html">Palestras</a>
-      <a href="gestao.html" style="opacity:.75;font-size:.85rem;">Gestão</a>
+      <a href="gestao.html" style="color:var(--mint);font-weight:600;">Gestão</a>
     </nav>
-    <a href="cursos.html" class="nav-cta">Ver cursos</a>
+    <a href="cursos.html" class="nav-cta">Ver turmas</a>
   </div>
 </header>
 
@@ -172,13 +221,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-photo"><img src="aj-hero.webp" alt="AJ Santos sorrindo" width="1100" height="1375" fetchpriority="high"></div>
   </div>
 </section>
-
-<div class="trust">
-  <div class="wrap trust-inner">
-    <span class="lab">Método rodando em</span>
-    <span class="n">Eco Facility Clean</span><span class="n">Ginger Street Food</span><span class="n">Lapa e Zanetti</span><span class="n">Grão da Terra</span><span class="n">Wojuridico.adv</span>
-  </div>
-</div>
 
 <section class="agenda">
   <div class="wrap agenda-grid">
@@ -213,6 +255,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="calc">
+  <div class="wrap calc-grid">
+    <div>
+      <h2>Quanto sobra de cada real que você coloca em anúncio?</h2>
+      <p class="lead">Preencha com os números do seu negócio. É uma simulação simples, para orientar a conversa.</p>
+      <div class="inputs">
+        <label>Verba mensal em anúncios (R$)<input type="number" id="c-verba" value="5000" min="0" step="100"></label>
+        <label>Custo por lead (R$)<input type="number" id="c-cpl" value="25" min="1" step="1"></label>
+        <label>Leads que viram venda (%)<input type="number" id="c-taxa" value="10" min="0" max="100" step="1"></label>
+        <label>Ticket médio (R$)<input type="number" id="c-ticket" value="800" min="0" step="50"></label>
+        <label>Margem sobre a venda (%)<input type="number" id="c-margem" value="40" min="1" max="100" step="1"></label>
+      </div>
+    </div>
+    <div class="result">
+      <div class="big"><span class="mono" id="r-sobra">R$ 0,00</span><small>de margem para cada R$ 1,00 investido</small></div>
+      <div class="r-rows">
+        <div><span>Vendas por mês</span><b class="mono" id="r-vendas">0</b></div>
+        <div><span>Custo por venda</span><b class="mono" id="r-cac">R$ 0</b></div>
+        <div><span>Faturamento vindo dos anúncios</span><b class="mono" id="r-rec">R$ 0</b></div>
+        <div><span>Resultado depois da verba</span><b class="mono" id="r-res">R$ 0</b></div>
+        <div><span>Retorno mínimo para empatar</span><b class="mono" id="r-eq">0x</b></div>
+      </div>
+      <p class="r-msg" id="r-msg"></p>
+      <div class="cta-row"><a href="cursos.html" class="btn btn-primary">Ver próximas turmas</a><a href="gestao.html#formulario" class="link">Quero um diagnóstico</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="gestao-sec">
+  <div class="wrap gestao-grid">
+    <div>
+      <h2>Já entendeu o método e quer delegar a execução?</h2>
+      <p class="lead">Eu assumo a operação com o mesmo método que ensino nas turmas. O começo é um diagnóstico da sua conta de anúncios.</p>
+      <div class="cta-row">
+        <a href="gestao.html#formulario" class="btn btn-primary">Agendar diagnóstico</a>
+        <a href="gestao.html" class="link">Conhecer a gestão</a>
+      </div>
+    </div>
+    <div class="g-list">
+      <div class="g-item"><b>Tráfego pago gerenciado</b><span>Google Ads e Meta Ads, com relatório que o dono entende.</span></div>
+      <div class="g-item"><b>Tagging e dados</b><span>GTM, GA4 e Pixel configurados para medir o que importa.</span></div>
+      <div class="g-item"><b>Automação com IA</b><span>Rotinas comerciais e de atendimento rodando sozinhas.</span></div>
+      <div class="g-price">A partir de R$ 2.500/mês</div>
+    </div>
+  </div>
+</section>
+
 <section class="manifesto">
   <div class="wrap man-grid">
     <div class="man-copy">
@@ -223,14 +312,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="faq">
+  <div class="wrap faq-grid">
+    <h2>Dúvidas frequentes</h2>
+    <div class="qs">
+      <details><summary>As aulas são ao vivo?</summary><p>Sim. São turmas noturnas pelo Zoom, com turma pequena de até 15 vagas, para eu acompanhar cada aluno.</p></details>
+      <details><summary>Qual curso escolho?</summary><p>Se você quer dominar uma plataforma, Google Ads ou Meta Ads. Se quer as duas, Mastery Google + Meta. Se quer IA no dia a dia da empresa, IA do Zero. O Combo Híbrido junta IA e tráfego em 8 horas.</p></details>
+      <details><summary>Posso começar só pelos guias?</summary><p>Pode. Os guias começam em R$ 15 e você aplica no mesmo dia. Depois, se quiser aprofundar, entra numa turma.</p></details>
+      <details><summary>Quanto custam as turmas?</summary><p>De R$ 397 a R$ 997, conforme o curso. O valor de cada um aparece na agenda acima.</p></details>
+      <details><summary>Quando faz sentido delegar a gestão?</summary><p>Quando você já entendeu o método e prefere gastar o seu tempo liderando a empresa. A gestão começa em R$ 2.500 por mês e parte de um diagnóstico da conta de anúncios.</p></details>
+      <details><summary>Atende empresas do Simples Nacional?</summary><p>É o meu foco. O método foi montado para a realidade de PME, com verba enxuta e dono tomando decisão.</p></details>
+    </div>
+  </div>
+</section>
+
 <section class="final">
   <div class="wrap">
     <h2>Comece pela próxima turma.</h2>
     <div class="cta-row">
-      <a href="cursos.html" class="btn btn-navy">Ver agenda</a>
+      <a href="cursos.html" class="btn btn-navy">Ver próximas turmas</a>
       <a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais" target="_blank" class="link">Falar comigo no WhatsApp</a>
     </div>
-    <p class="gestao">Já aplica o método e quer delegar a execução? <a href="gestao.html">Conheça a gestão operacional</a>.</p>
   </div>
 </section>
 
@@ -305,6 +407,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       el.innerHTML='<span>Próxima turma</span><b>'+n.curso+'</b><span class="mono">'+fmt(n.data_aula)+', '+n.horario+'</span><span>'+v+' vaga'+(v===1?'':'s')+'</span><a href="inscricao.html?curso='+encodeURIComponent(n.curso)+'">Garantir vaga</a>';
     });
   }catch(e){}
+})();
+</script>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i);},fired=false;
+  var brl=function(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});};
+  function calc(e){
+    var v=+$('c-verba').value||0,cpl=+$('c-cpl').value||0,t=(+$('c-taxa').value||0)/100,tk=+$('c-ticket').value||0,m=(+$('c-margem').value||0)/100;
+    var leads=cpl>0?v/cpl:0,vendas=leads*t,rec=vendas*tk,marg=rec*m,res=marg-v;
+    var sobra=v>0?marg/v:0,cac=vendas>0?v/vendas:0,eq=m>0?1/m:0,roas=v>0?rec/v:0;
+    $('r-sobra').textContent=brl(sobra);
+    $('r-vendas').textContent=vendas.toLocaleString('pt-BR',{maximumFractionDigits:1});
+    $('r-cac').textContent=vendas>0?brl(cac):'sem vendas';
+    $('r-rec').textContent=brl(rec);
+    $('r-res').textContent=brl(res);
+    $('r-eq').textContent=eq.toLocaleString('pt-BR',{maximumFractionDigits:1})+'x';
+    $('r-msg').textContent=v<=0?'':(res>=0?'Seu retorno de '+roas.toLocaleString('pt-BR',{maximumFractionDigits:1})+'x passa do mínimo de '+eq.toLocaleString('pt-BR',{maximumFractionDigits:1})+'x. A conta fecha, e o desafio é escalar sem perder margem.':'Seu retorno de '+roas.toLocaleString('pt-BR',{maximumFractionDigits:1})+'x fica abaixo do mínimo de '+eq.toLocaleString('pt-BR',{maximumFractionDigits:1})+'x. Cada mês assim consome caixa.');
+    if(e&&!fired){fired=true;window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'uso_calculadora'});}
+  }
+  ['c-verba','c-cpl','c-taxa','c-ticket','c-margem'].forEach(function(i){$(i).addEventListener('input',calc);});
+  calc();
 })();
 </script>
 </body>
