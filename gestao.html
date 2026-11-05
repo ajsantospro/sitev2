@@ -132,6 +132,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cnote{margin-top:14px;font-size:.82rem;color:var(--slate);}
   @media(max-width:640px){.ctable th,.ctable td{padding:14px 10px;font-size:.88rem;}}
 
+
+  /* SEGMENTOS */
+  .segs{background:var(--fog);}
+  .segs h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:10px;}
+  .segs-lead{color:var(--slate);margin-bottom:36px;max-width:560px;}
+  .segs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .seg{border-top:2px solid var(--navy);padding-top:18px;}
+  .seg h3{font-size:1.15rem;line-height:1.2;margin-bottom:8px;}
+  .seg p{color:var(--slate);font-size:.9rem;min-height:4.2em;margin-bottom:12px;}
+  .seg ul{list-style:none;}
+  .seg li{padding:9px 0;border-top:1px solid var(--line);font-weight:500;color:var(--ink);font-size:.96rem;}
+  @media(max-width:980px){.segs-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.segs-grid{grid-template-columns:1fr;}.seg p{min-height:0;}}
+
   /* INVESTIMENTO */
   .invest{background:var(--navy);color:#fff;padding:80px 0;text-align:center;}
   .invest h2{color:#fff;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:10px;}
@@ -245,6 +259,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </tbody>
     </table>
     <p class="cnote">Comparação geral. Varia de agência para agência.</p>
+  </div>
+</section>
+
+<section class="segs">
+  <div class="wrap">
+    <h2>Para quem fazemos.</h2>
+    <p class="segs-lead">Negócios que dependem de atrair o cliente certo e medir o que isso custa.</p>
+    <div class="segs-grid">
+      <div class="seg"><h3>Vendem pela internet</h3><p>O foco é venda e custo por pedido.</p><ul><li>E-commerces</li></ul></div>
+      <div class="seg"><h3>Vendem no local</h3><p>O foco é trazer o cliente da região até a porta.</p><ul><li>Estabelecimentos físicos</li><li>Prestadores de serviços</li></ul></div>
+      <div class="seg"><h3>Moda, estética e bem-estar</h3><p>O foco é agendamento, recompra e imagem da marca.</p><ul><li>Moda</li><li>Estética</li><li>Bem-estar e saúde</li></ul></div>
+      <div class="seg"><h3>Serviços especializados</h3><p>O foco é contato qualificado de quem já pesquisa e decide com cuidado.</p><ul><li>Advocacias</li><li>Instituições de ensino</li></ul></div>
+    </div>
   </div>
 </section>
 
