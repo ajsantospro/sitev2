@@ -10,287 +10,356 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inscrição em Turma — AJ Santos</title>
+<title>Inscrição em turma | AJ Santos</title>
+<meta property="og:title" content="Inscrição em turma | AJ Santos">
+<meta property="og:description" content="Escolha o curso, a turma e garanta sua vaga nas aulas ao vivo da AJ Santos. Pagamento único via Pix.">
+<meta property="og:image" content="https://ajsantos.pro.br/og-aj.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Escolha o curso, a turma e garanta sua vaga nas aulas ao vivo da AJ Santos. Pagamento único via Pix.">
 <link rel="icon" href="logo-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>
-  :root{--navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#0b0e1a;--mint:#71ffcc;--mint-dim:#3fdba8;--paper:#ffffff;--fog:#f3f5fb;--slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);}
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  :root{--navy:#090956;--navy-2:#12136e;--navy-3:#050534;--ink:#1E1E2A;--mint:#71ffcc;--mint-dim:#3fdba8;--paper:#fff;--fog:#F4F4F0;--slate:#5b6478;--line:#e2e6f2;--line-dark:rgba(255,255,255,.14);--terracota:#C96442;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--fog);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;color:var(--navy);}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.015em;color:var(--navy);}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:640px;margin:0 auto;padding:0 24px;}
-  header{background:linear-gradient(180deg,var(--navy),var(--navy-2));padding:26px 0;}
-  .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;font-size:1.05rem;color:#fff;}
-  .logo img{height:30px;width:auto;}
-  main{padding:48px 0 80px;}
-  .card{background:var(--paper);border-radius:20px;padding:36px;border:1px solid var(--line);}
-  .eyebrow{font-family:'Space Grotesk';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mint-dim);font-weight:700;margin-bottom:10px;}
-  h1{font-size:1.5rem;margin-bottom:8px;}
-  .sub{color:var(--slate);font-size:.92rem;margin-bottom:28px;}
+  img{max-width:100%;display:block;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  section{padding:88px 0;}
+  @media(max-width:720px){section{padding:56px 0;}.wrap{padding:0 20px;}}
 
-  label{display:block;font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:6px;margin-top:20px;}
-  label:first-of-type{margin-top:0;}
-  select, input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Inter';font-size:.94rem;background:#fff;}
-  select:focus, input:focus{outline:2px solid var(--mint-dim);border-color:transparent;}
+  header{position:sticky;top:0;z-index:50;background:rgba(9,9,86,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;color:#fff;}
+  .navlinks{display:flex;gap:36px;font-size:.92rem;color:#c9cbf0;}
+  .navlinks a{transition:color .2s;}
+  .navlinks a:hover,.navlinks a.active{color:var(--mint);}
+  .nav-cta{background:var(--mint);color:var(--navy);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:100px;transition:transform .2s,box-shadow .2s;white-space:nowrap;}
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(113,255,204,.35);}
+  @media(max-width:900px){.navlinks{display:none;}}
 
-  .turmas-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+  .btn{display:inline-flex;align-items:center;padding:15px 28px;border-radius:100px;font-weight:700;font-size:.95rem;font-family:'Space Grotesk';transition:transform .2s,box-shadow .2s;}
+  .btn-primary{background:var(--mint);color:var(--navy);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(113,255,204,.35);}
+  .btn-navy{background:var(--navy);color:#fff;}
+  .btn-navy:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(9,9,86,.25);}
+  .link{font-family:'Space Grotesk';font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px;}
 
-  .next-turma-card{
-    border:2px solid var(--mint-dim);border-radius:14px;padding:20px 18px;
-    background:linear-gradient(135deg, rgba(63,219,168,.06), rgba(63,219,168,.02));
-    position:relative;
+  /* HERO */
+  .hero{background:var(--navy);color:#fff;padding:0;overflow:hidden;position:relative;}
+  .hero-grid{display:block;min-height:520px;}
+  .hero-copy{padding:88px 0 72px;display:flex;flex-direction:column;justify-content:center;min-height:520px;max-width:600px;position:relative;z-index:2;}
+  .hero h1{color:#fff;font-size:clamp(2.4rem,5vw,4rem);line-height:1.04;margin-bottom:22px;}
+  .hero h1 em{font-style:normal;color:var(--mint);}
+  .hero-sub{color:#c9cbf0;font-size:1.12rem;max-width:440px;margin-bottom:34px;}
+  .cta-row{display:flex;gap:24px;flex-wrap:wrap;align-items:center;}
+  .hero .link{color:#fff;}
+  .hero .link:hover{color:var(--mint);}
+  .next-class{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-dark);display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;font-size:.95rem;color:#c9cbf0;min-height:58px;}
+  .next-class b{color:#fff;font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;}
+  .next-class .mono{color:var(--mint);font-size:.9rem;}
+  .next-class a{color:var(--mint);font-weight:600;border-bottom:1px solid var(--mint);}
+  .hero-photo{position:absolute;top:0;bottom:0;right:max(0px,calc((100% - 1180px)/2 + 32px));width:min(46%,540px);}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 88%,transparent 100%);}
+    @media(max-width:900px){
+    .hero-grid{min-height:0;}
+    .hero-copy{padding:56px 0 40px;min-height:0;max-width:none;}
+    .hero-photo{position:relative;right:auto;width:auto;height:440px;margin:0 -20px;}
+    .hero-photo img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 25%);mask-image:linear-gradient(180deg,transparent 0,#000 25%);}
   }
-  .next-turma-card .urgency-badge{
-    display:inline-flex;align-items:center;gap:6px;
-    background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;
-    padding:5px 12px;border-radius:100px;margin-bottom:14px;font-family:'Space Grotesk';
-    text-transform:uppercase;letter-spacing:.04em;
-  }
-  .next-turma-card .urgency-badge::before{content:'●';color:var(--mint);font-size:.6rem;}
-  .next-turma-card .data{font-family:'Space Grotesk';font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
-  .next-turma-card .horario{color:var(--slate);font-size:.9rem;margin-bottom:14px;}
-  .next-turma-card .vagas-row{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px dashed var(--line);}
-  .next-turma-card .vagas-label{font-size:.82rem;color:var(--slate);}
-  .next-turma-card .vagas-num{font-family:'Space Grotesk';font-weight:700;color:var(--mint-dim);font-size:.95rem;}
-  .next-turma-card .vagas-num.pouco{color:#d97706;}
 
-  .turma-opt{
-    border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;
-    display:flex;justify-content:space-between;align-items:center;transition:border-color .15s;
-  }
-  .turma-opt:hover{border-color:var(--mint-dim);}
-  .turma-opt.selected{border-color:var(--navy);background:var(--fog);}
-  .turma-opt .info b{display:block;font-size:.94rem;color:var(--ink);}
-  .turma-opt .info span{font-size:.8rem;color:var(--slate);}
-  .turma-opt .vagas{font-size:.78rem;font-weight:700;color:var(--mint-dim);white-space:nowrap;}
-  .turma-opt .vagas.pouco{color:#d97706;}
+  /* TRUST */
+  .trust{background:var(--fog);border-bottom:1px solid var(--line);}
+  .trust-inner{display:flex;align-items:center;gap:36px;flex-wrap:wrap;padding-top:24px;padding-bottom:24px;font-size:.9rem;color:var(--slate);}
+  .trust-inner span.n{font-family:'Space Grotesk';font-weight:600;color:#7a83a3;}
+  .trust-inner .lab{font-weight:600;color:var(--slate);}
 
-  .btn{
-    display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
-    padding:15px 26px;border-radius:100px;font-weight:700;font-size:.94rem;
-    font-family:'Space Grotesk';background:var(--navy);color:#fff;border:none;cursor:pointer;
-    margin-top:28px;transition:background .2s;
-  }
-  .btn:hover{background:var(--navy-2);}
-  .btn:disabled{opacity:.5;cursor:not-allowed;}
+  /* FAQ */
+  .faq{background:var(--fog);}
+  .faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px;}
+  .faq h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;}
+  .qs details{border-bottom:1px solid var(--line);padding:18px 0;}
+  .qs details:first-child{border-top:1px solid var(--line);}
+  .qs summary{cursor:pointer;font-family:'Space Grotesk';font-weight:600;color:var(--navy);font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:16px;}
+  .qs summary::-webkit-details-marker{display:none;}
+  .qs summary::after{content:'+';font-size:1.4rem;line-height:1;color:var(--slate);}
+  .qs details[open] summary::after{content:'\2212';}
+  .qs p{margin-top:10px;color:var(--slate);max-width:560px;}
+  @media(max-width:900px){.faq-grid{grid-template-columns:1fr;gap:28px;}}
 
-  .msg{font-size:.86rem;padding:12px 14px;border-radius:10px;margin-top:16px;display:none;}
-  .msg.error{background:#fef2f2;color:#b91c1c;display:block;}
-  .msg.loading{background:var(--fog);color:var(--slate);display:block;}
 
-  .success{text-align:center;padding:20px 0;}
-  .success .check{width:64px;height:64px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;color:var(--navy);}
-  .success h2{margin-bottom:10px;}
-  .success p{color:var(--slate);font-size:.94rem;margin-bottom:24px;}
 
-  .empty{color:var(--slate);font-size:.9rem;padding:16px;text-align:center;background:var(--fog);border-radius:12px;}
+  /* DIFERENCIAL */
+  .diff{background:var(--fog);padding:72px 0;}
+  .diff-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;}
+  .diff h2{font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.12;}
+  .diff-list>div{padding:16px 0;border-top:1px solid var(--line);}
+  .diff-list>div:last-child{border-bottom:1px solid var(--line);}
+  .diff-list b{display:block;font-family:'Space Grotesk';font-size:1.12rem;color:var(--navy);font-weight:600;}
+  .diff-list span{color:var(--slate);font-size:.94rem;}
+  @media(max-width:860px){.diff-grid{grid-template-columns:1fr;gap:28px;}.diff{padding:56px 0;}}
+
+  .why{background:var(--navy);color:#fff;padding:72px 0;}
+  .why-in{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center;}
+  .why h2{color:#fff;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.12;}
+  .why p{color:#c9cbf0;font-size:1.05rem;max-width:520px;}
+  @media(max-width:860px){.why-in{grid-template-columns:1fr;gap:20px;}.why{padding:56px 0;}}
+
+  /* COMBO */
+  .combo-sec{padding-top:72px;padding-bottom:24px;}
+  .combo{background:var(--navy);color:#fff;border-radius:24px;padding:44px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;}
+  .combo .tag{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--mint);margin-bottom:14px;display:block;}
+  .combo h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.12;margin-bottom:14px;}
+  .combo p{color:#c9cbf0;margin-bottom:20px;}
+  .combo ul{list-style:none;}
+  .combo li{padding:10px 0;border-top:1px solid var(--line-dark);font-size:.94rem;color:#e6e7fa;}
+  .combo-side{background:rgba(255,255,255,.06);border:1px solid var(--line-dark);border-radius:16px;padding:28px;}
+  .combo-side .old{color:#8b8fd6;text-decoration:line-through;font-size:.88rem;}
+  .combo-side .price{font-family:'IBM Plex Mono',monospace;font-size:2.4rem;font-weight:700;color:var(--mint);line-height:1.2;}
+  .combo-side .meta{color:#c9cbf0;font-size:.86rem;margin:12px 0 20px;}
+  .combo-side .next{font-size:.88rem;color:#fff;margin-bottom:18px;min-height:22px;}
+  .combo-side .btn{width:100%;justify-content:center;}
+  @media(max-width:860px){.combo{grid-template-columns:1fr;padding:28px;}}
+
+  /* LISTA DE CURSOS */
+  .list-sec{padding-top:56px;}
+  .list-sec h2{font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1;margin-bottom:28px;}
+  .crow{display:grid;grid-template-columns:1.4fr .8fr auto;gap:28px;align-items:center;padding:26px 8px;border-top:1px solid var(--line);}
+  .crow:last-of-type{border-bottom:1px solid var(--line);}
+  .crow h3{font-size:1.25rem;margin-bottom:4px;}
+  .crow p{color:var(--slate);font-size:.93rem;max-width:460px;}
+  .c-meta{display:flex;flex-direction:column;gap:4px;font-size:.88rem;color:var(--slate);}
+  .c-meta .next{color:var(--navy);font-weight:600;}
+  .c-buy{display:flex;align-items:center;gap:20px;}
+  .c-buy b{font-family:'IBM Plex Mono',monospace;font-size:1.15rem;color:var(--navy);}
+  @media(max-width:860px){.crow{grid-template-columns:1fr;gap:14px;padding:24px 0;}.c-buy{justify-content:space-between;}}
+
+  .gatilho{background:var(--fog);border-radius:18px;padding:32px 34px;margin-top:48px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+  .gatilho h3{font-size:1.15rem;margin-bottom:6px;}
+  .gatilho p{color:var(--slate);font-size:.92rem;max-width:560px;}
+  .faq{background:var(--paper);}
+  .final{text-align:center;background:var(--fog);}
+  .final h2{font-size:clamp(1.9rem,3.4vw,2.8rem);margin-bottom:12px;}
+  .final p{color:var(--slate);margin-bottom:26px;}
+  footer{background:var(--navy-3);color:#8b8fd6;padding:56px 0 30px;font-size:.86rem;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  .foot-grid h5{color:#fff;font-family:'Space Grotesk';font-size:.85rem;margin-bottom:14px;}
+  .foot-grid a{display:block;color:#8b8fd6;margin-bottom:9px;transition:color .2s;}
+  .foot-grid a:hover{color:var(--mint);}
+  .foot-bottom{border-top:1px solid var(--line-dark);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+<style>
+.insc{padding:56px 0 88px;background:var(--paper);}
+.insc h1{font-size:clamp(2rem,4vw,3rem);line-height:1.08;margin-bottom:8px;}
+.insc-sub{color:var(--slate);margin-bottom:36px;}
+.insc-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:48px;align-items:start;}
+.insc h2{font-size:1.15rem;margin:30px 0 14px;color:var(--navy);}
+.insc form>h2:first-child{margin-top:0;}
+.opts{display:grid;gap:10px;}
+.insc label.opt{display:grid;margin-bottom:0;font-size:1rem;font-weight:400;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 18px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:#fff;}
+.insc label.opt:hover{border-color:var(--navy);}
+.opt input{accent-color:var(--navy);width:18px;height:18px;margin:0;}
+.insc label.opt.sel{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy) inset;}
+.opt b{display:block;font-family:'Space Grotesk';font-size:1.02rem;color:var(--navy);}
+.opt small{color:var(--slate);}
+.opt .pr{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--navy);}
+.turma-box{background:var(--fog);border-radius:14px;padding:20px 22px;}
+.turma-box .d{font-family:'Space Grotesk';font-size:1.25rem;color:var(--navy);font-weight:600;}
+.turma-box .h{color:var(--slate);margin-top:2px;}
+.turma-box .v{margin-top:10px;font-size:.92rem;color:var(--slate);}
+.turma-box .v b{color:var(--navy);}
+.turma-box .v b.pouco{color:#C96442;}
+.turma-box.vazio{color:var(--slate);}
+.insc label{display:block;font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:16px;}
+.insc input[type=text],.insc input[type=email],.insc input:not([type=radio]){display:block;width:100%;margin-top:6px;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-weight:400;background:#fff;color:var(--ink);}
+.insc input:not([type=radio]):focus{outline:2px solid var(--mint-dim);border-color:transparent;}
+.legal{font-size:.82rem;color:var(--slate);margin:4px 0 16px;}
+.legal a{color:var(--navy);text-decoration:underline;}
+#submit-btn{width:100%;justify-content:center;border:0;cursor:pointer;}
+#submit-btn:disabled{opacity:.6;cursor:wait;}
+.msg{margin-top:12px;font-size:.92rem;}
+.msg.error{color:#B3261E;}
+.msg.loading{color:var(--slate);}
+.resumo{position:sticky;top:96px;background:var(--navy);color:#fff;border-radius:18px;padding:28px;}
+.resumo h3{font-size:1.1rem;margin-bottom:16px;color:#fff;}
+.r-linha,.r-total{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid rgba(255,255,255,.14);font-size:.94rem;}
+.r-linha span,.r-total span{color:#c9cbf0;}
+.r-linha b,.r-total b{text-align:right;}
+.r-total b{font-family:'IBM Plex Mono',monospace;font-size:1.2rem;color:var(--mint);}
+.resumo ul{list-style:none;margin:16px 0 18px;padding:0;display:grid;gap:8px;font-size:.9rem;color:#e3e4fa;}
+.resumo .link{color:#fff;}
+.sucesso{max-width:560px;}
+.sucesso h2{font-size:1.8rem;margin:0 0 12px;}
+.sucesso p{color:var(--slate);margin-bottom:24px;}
+@media(max-width:860px){.insc-grid{grid-template-columns:1fr;gap:32px;}.resumo{position:static;order:-1;}}
 </style>
 </head>
-<body>
+<body class="page-cursos">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KT66K5ZP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <header>
-  <div class="wrap">
-    <a href="index.html" class="logo"><img src="logo-icon-white.png" alt="AJ Santos">AJ SANTOS</a>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><img src="logo-icon-white.png" alt="AJ Santos" style="height:34px;width:auto;">AJ SANTOS</a>
+        <nav class="navlinks">
+      <a href="cursos.html" class="active">Cursos</a>
+      <a href="ebooks.html">Biblioteca</a>
+      <a href="blog.html">Blog</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="palestras.html">Palestras</a>
+      <a href="gestao.html" style="color:var(--mint);font-weight:600;">Gestão</a>
+    </nav>
+    <a href="cursos.html" class="nav-cta">Ver turmas</a>
   </div>
 </header>
 
-<main class="wrap">
-  <div class="card" id="form-card">
-    <div class="eyebrow">Inscrição em turma</div>
-    <h1>Garanta sua vaga</h1>
-    <p class="sub">Escolha o curso, selecione a data disponível e preencha seus dados. A confirmação chega por e-mail.</p>
+<main class="insc">
+  <div class="wrap">
+    <h1>Garanta sua vaga.</h1>
+    <p class="insc-sub">Aulas ao vivo pelo Zoom, à noite, em turma pequena.</p>
 
-    <label for="curso-select">Curso</label>
-    <select id="curso-select">
-      <option value="">Selecione um curso</option>
-      <option value="Combo Híbrido">Combo Híbrido — IA + Tráfego Pago (8h) · R$ 997</option>
-      <option value="Google Ads">Google Ads Prático PME (3h) · R$ 397</option>
-      <option value="Meta Ads">Meta Ads para Vendas (3h) · R$ 397</option>
-      <option value="Mastery Google+Meta">Mastery: Google + Meta Ads (5h) · R$ 697</option>
-      <option value="IA do Zero">IA do Zero para Negócios (4h) · R$ 450</option>
-    </select>
+    <div class="insc-grid" id="form-area">
+      <form id="insc-form" novalidate>
+        <h2>1. Escolha o curso</h2>
+        <div class="opts" id="opts"></div>
 
-    <div id="turmas-container" style="display:none;">
-      <label>Data da turma</label>
-      <div class="turmas-list" id="turmas-list"></div>
+        <div id="step-turma" hidden>
+          <h2>2. Sua turma</h2>
+          <div id="turma-box" class="turma-box"></div>
+        </div>
+
+        <div id="step-dados" hidden>
+          <h2>3. Seus dados</h2>
+          <label>Nome completo<input id="nome" autocomplete="name" placeholder="Seu nome completo"></label>
+          <label>E-mail<input id="email" type="email" autocomplete="email" placeholder="voce@empresa.com.br"></label>
+          <label>WhatsApp<input id="telefone" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"></label>
+          <p class="legal">Ao confirmar, você concorda com a <a href="privacidade.html" target="_blank">Política de Privacidade</a> e os <a href="termos.html" target="_blank">Termos de uso</a>.</p>
+          <button type="submit" class="btn btn-navy" id="submit-btn">Confirmar inscrição</button>
+          <div class="msg" id="msg" role="status"></div>
+        </div>
+      </form>
+
+      <aside class="resumo" id="resumo">
+        <h3>Resumo</h3>
+        <div class="r-linha"><span>Curso</span><b id="r-curso">Selecione</b></div>
+        <div class="r-linha"><span>Data</span><b id="r-data">A definir</b></div>
+        <div class="r-linha"><span>Vagas</span><b id="r-vagas">A definir</b></div>
+        <div class="r-total"><span>Investimento</span><b id="r-valor">A definir</b></div>
+        <ul>
+          <li>Pagamento único via Pix</li>
+          <li>Aula 100% ao vivo, sem gravação</li>
+          <li>Turma de até 15 pessoas</li>
+        </ul>
+        <a class="link" href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20inscri%C3%A7%C3%A3o" target="_blank" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_whatsapp',event_category:'conversao',event_label:'inscricao_duvida'});">Dúvida? Fale no WhatsApp</a>
+      </aside>
     </div>
 
-    <div id="dados-container" style="display:none;">
-      <label for="nome">Nome completo</label>
-      <input type="text" id="nome" placeholder="Seu nome completo">
-
-      <label for="email">E-mail</label>
-      <input type="email" id="email" placeholder="voce@empresa.com.br">
-
-      <label for="telefone">Telefone / WhatsApp</label>
-      <input type="text" id="telefone" placeholder="(11) 90000-0000">
-
-      <button class="btn" id="submit-btn">Confirmar inscrição →</button>
-    </div>
-
-    <div class="msg" id="msg"></div>
-  </div>
-
-  <div class="card" id="success-card" style="display:none;">
-    <div class="success">
-      <div class="check">✓</div>
-      <h2>Vaga garantida!</h2>
-      <p>Anotamos sua inscrição. Em breve você recebe os detalhes de acesso e pagamento por e-mail.</p>
-      <a href="index.html" class="btn" style="text-decoration:none;">Voltar para a Home</a>
+    <div class="sucesso" id="success" hidden>
+      <h2>Inscrição recebida.</h2>
+      <p>Em breve você recebe por e-mail os dados do pagamento único via Pix e o acesso à aula. Se não chegar em algumas horas, confira o spam ou fale com a gente no WhatsApp.</p>
+      <div class="cta-row"><a href="index.html" class="btn btn-navy">Voltar para a Home</a><a href="https://wa.me/5511943592160" target="_blank" class="link" style="color:var(--navy);">Falar no WhatsApp</a></div>
     </div>
   </div>
 </main>
 
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h5>AJ SANTOS</h5><p style="max-width:280px;color:#8b8fd6;font-style:italic;">"O que eu ensino é o que eu ainda aplico."</p></div>
+      <div><h5>Navegação</h5><a href="cursos.html">Cursos</a><a href="ebooks.html">Biblioteca</a><a href="blog.html">Blog</a></div>
+      <div><h5>Empresa</h5><a href="sobre.html">Sobre</a><a href="palestras.html">Palestras</a><a href="gestao.html">Gestão</a></div>
+      <div><h5>Contato</h5><a href="https://wa.me/5511943592160" target="_blank">Falar no WhatsApp</a><a href="gestao.html#formulario">Agendar diagnóstico</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AJ Santos. Todos os direitos reservados. &nbsp;·&nbsp; <a href="privacidade.html" style="color:#8b8fd6;">Privacidade</a> &nbsp;·&nbsp; <a href="termos.html" style="color:#8b8fd6;">Termos de uso</a></span><span>São Paulo, Brasil</span></div>
+  </div>
+</footer>
+
+
+<a href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais" target="_blank" id="wa-float" aria-label="Falar no WhatsApp" onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'clique_whatsapp',event_category:'conversao',event_label:'botao_flutuante'});">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="#090956"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.61-.07.16-.19.7-.82.88-1.1.19-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.46.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+<style>
+#wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:100;
+  width:58px;height:58px;border-radius:50%;
+  background:#71ffcc;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(9,9,86,.35);
+  transition:transform .2s;
+}
+#wa-float:hover{transform:scale(1.08);}
+@media(max-width:600px){#wa-float{width:52px;height:52px;bottom:18px;right:18px;}}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  const SUPABASE_URL = "https://qwhxenojawjejmgqlxwd.supabase.co";
-  const SUPABASE_KEY = "sb_publishable_sxmLcGr8z03JMNekJg_07A_oACZyAHf";
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  const cursoSelect = document.getElementById('curso-select');
-  const turmasContainer = document.getElementById('turmas-container');
-  const turmasList = document.getElementById('turmas-list');
-  const dadosContainer = document.getElementById('dados-container');
-  const msg = document.getElementById('msg');
-  const submitBtn = document.getElementById('submit-btn');
-
-  let turmaSelecionada = null;
-
-  const PRECOS = {
-    'Combo Híbrido': 997,
-    'Google Ads': 397,
-    'Meta Ads': 397,
-    'Mastery Google+Meta': 697,
-    'IA do Zero': 450
-  };
-
-  // pre-seleciona curso via ?curso=NomeDoCurso na URL
-  const params = new URLSearchParams(window.location.search);
-  const cursoParam = params.get('curso');
-  if (cursoParam) {
-    cursoSelect.value = cursoParam;
-    if (cursoSelect.value) carregarTurmas(cursoParam);
-  }
-
-  cursoSelect.addEventListener('change', () => {
-    turmaSelecionada = null;
-    dadosContainer.style.display = 'none';
-    if (cursoSelect.value) {
-      carregarTurmas(cursoSelect.value);
-    } else {
-      turmasContainer.style.display = 'none';
-    }
-  });
-
-  async function carregarTurmas(curso) {
-    turmasContainer.style.display = 'block';
-    turmasList.innerHTML = '<div class="empty">Carregando turma...</div>';
-    dadosContainer.style.display = 'none';
-    turmaSelecionada = null;
-
-    const { data, error } = await sb
-      .from('turmas')
-      .select('*')
-      .eq('curso', curso)
-      .eq('ativa', true)
-      .order('data_aula', { ascending: true });
-
-    if (error) {
-      turmasList.innerHTML = '<div class="empty">Não foi possível carregar as turmas agora. Tente novamente em instantes.</div>';
-      return;
-    }
-
-    const disponiveis = data.filter(t => t.vagas_ocupadas < t.vagas_totais);
-
-    if (disponiveis.length === 0) {
-      turmasList.innerHTML = '<div class="empty">Não há turmas com vaga aberta no momento. Fale com a gente no WhatsApp para saber a próxima data.</div>';
-      return;
-    }
-
-    // Mostra só a próxima turma disponível (a mais próxima no calendário)
-    const t = disponiveis[0];
-    const restantes = t.vagas_totais - t.vagas_ocupadas;
-    const dataFmt = new Date(t.data_aula + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-
-    turmasList.innerHTML = `
-      <div class="next-turma-card">
-        <span class="urgency-badge">Próxima turma</span>
-        <div class="data">${dataFmt}</div>
-        <div class="horario">${t.horario}</div>
-        <div class="vagas-row">
-          <span class="vagas-label">Vagas restantes</span>
-          <span class="vagas-num ${restantes <= 3 ? 'pouco' : ''}">${restantes} vaga${restantes === 1 ? '' : 's'}</span>
-        </div>
-      </div>
-    `;
-
-    // seleciona automaticamente, já libera o formulário
-    turmaSelecionada = t.id;
-    dadosContainer.style.display = 'block';
-    msg.style.display = 'none';
-  }
-
-  submitBtn.addEventListener('click', async () => {
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const telefone = document.getElementById('telefone').value.trim();
-
-    if (!turmaSelecionada) {
-      showMsg('Selecione uma data de turma.', 'error');
-      return;
-    }
-    if (!nome || !email || !telefone) {
-      showMsg('Preencha nome, e-mail e telefone.', 'error');
-      return;
-    }
-
-    submitBtn.disabled = true;
-    showMsg('Confirmando sua vaga...', 'loading');
-
-    const { data, error } = await sb.rpc('inscrever_aluno', {
-      p_turma_id: turmaSelecionada,
-      p_nome: nome,
-      p_email: email,
-      p_telefone: telefone
-    });
-
-    if (error) {
-      submitBtn.disabled = false;
-      if (error.message && error.message.includes('lotada')) {
-        showMsg('Essa turma acabou de lotar. Escolha outra data.', 'error');
-        carregarTurmas(cursoSelect.value);
-      } else {
-        showMsg('Algo deu errado. Tente novamente ou fale no WhatsApp.', 'error');
-      }
-      return;
-    }
-
-    document.getElementById('form-card').style.display = 'none';
-    document.getElementById('success-card').style.display = 'block';
-
-    if (window.dataLayer) {
-      dataLayer.push({
-        'event': 'inscricao_concluida',
-        curso: cursoSelect.value,
-        value: PRECOS[cursoSelect.value] || 0,
-        currency: 'BRL',
-        event_category: 'conversao',
-        event_label: cursoSelect.value
-      });
-    }
-  });
-
-  function showMsg(text, type) {
-    msg.textContent = text;
-    msg.className = 'msg ' + type;
-  }
+const sb=supabase.createClient("https://qwhxenojawjejmgqlxwd.supabase.co","sb_publishable_sxmLcGr8z03JMNekJg_07A_oACZyAHf");
+const CURSOS={
+ 'Combo Híbrido':{nome:'Combo Híbrido: IA + Tráfego Pago',dur:'8h',preco:997},
+ 'Google Ads':{nome:'Google Ads Prático PME',dur:'3h',preco:397},
+ 'Meta Ads':{nome:'Meta Ads para Vendas',dur:'3h',preco:397},
+ 'Mastery Google+Meta':{nome:'Mastery: Google + Meta Ads',dur:'5h',preco:697},
+ 'IA do Zero':{nome:'IA do Zero para Negócios',dur:'4h',preco:450}
+};
+const $=id=>document.getElementById(id);
+const brl=v=>'R$ '+v.toLocaleString('pt-BR');
+let curso=null,turma=null;
+$('opts').innerHTML=Object.keys(CURSOS).map(k=>{const c=CURSOS[k];return `<label class="opt" data-k="${k}"><input type="radio" name="curso" value="${k}"><span><b>${c.nome}</b><small>${c.dur}, ao vivo</small></span><span class="pr">${brl(c.preco)}</span></label>`}).join('');
+document.querySelectorAll('.opt input').forEach(r=>r.addEventListener('change',()=>escolher(r.value)));
+const p=new URLSearchParams(location.search).get('curso');
+if(p){const k=Object.keys(CURSOS).find(x=>x===p||x.replace('+',' ')===p);if(k){document.querySelector('.opt[data-k="'+k+'"] input').checked=true;escolher(k);}}
+function resumo(){
+ $('r-curso').textContent=curso?CURSOS[curso].nome:'Selecione';
+ $('r-valor').textContent=curso?brl(CURSOS[curso].preco):'A definir';
+ if(turma){$('r-data').textContent=fmt(turma.data_aula)+', '+turma.horario;const r=turma.vagas_totais-turma.vagas_ocupadas;$('r-vagas').textContent=r+(r===1?' restante':' restantes');}
+ else{$('r-data').textContent='A definir';$('r-vagas').textContent='A definir';}
+}
+function fmt(d){return new Date(d+'T00:00:00').toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});}
+async function escolher(k){
+ curso=k;turma=null;
+ document.querySelectorAll('.opt').forEach(o=>o.classList.toggle('sel',o.dataset.k===k));
+ $('step-turma').hidden=false;$('step-dados').hidden=true;
+ $('turma-box').className='turma-box';$('turma-box').textContent='Carregando turma...';
+ resumo();
+ const hoje=new Date().toLocaleDateString('sv-SE');
+ const {data,error}=await sb.from('turmas').select('*').eq('curso',k).eq('ativa',true).gte('data_aula',hoje).order('data_aula',{ascending:true});
+ if(curso!==k)return;
+ if(error){$('turma-box').className='turma-box vazio';$('turma-box').textContent='Não foi possível carregar as turmas agora. Tente novamente em instantes.';return;}
+ const t=(data||[]).find(x=>x.vagas_ocupadas<x.vagas_totais);
+ if(!t){$('turma-box').className='turma-box vazio';$('turma-box').innerHTML='Não há turma com vaga aberta no momento. <a class="link" style="color:var(--navy);" target="_blank" href="https://wa.me/5511943592160?text=Ol%C3%A1%2C%20quero%20saber%20a%20pr%C3%B3xima%20turma%20de%20'+encodeURIComponent(k)+'">Pergunte a próxima data no WhatsApp</a>.';return;}
+ turma=t;const r=t.vagas_totais-t.vagas_ocupadas;
+ $('turma-box').innerHTML=`<div class="d">${fmt(t.data_aula)}</div><div class="h">${t.horario}</div><div class="v">Vagas restantes: <b class="${r<=3?'pouco':''}">${r}</b></div>`;
+ $('step-dados').hidden=false;resumo();
+}
+$('telefone').addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);if(v.length>6)v=v.replace(/^(\d{2})(\d{5}|\d{4})(\d{0,4}).*/,'($1) $2-$3');else if(v.length>2)v=v.replace(/^(\d{2})(\d*)/,'($1) $2');e.target.value=v;});
+function msg(t,c){$('msg').textContent=t;$('msg').className='msg '+c;}
+$('insc-form').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const nome=$('nome').value.trim(),email=$('email').value.trim(),tel=$('telefone').value.trim();
+ if(!turma){msg('Escolha um curso com turma disponível.','error');return;}
+ if(!nome||!email||!tel){msg('Preencha nome, e-mail e WhatsApp.','error');return;}
+ if(!/^\S+@\S+\.\S+$/.test(email)){msg('Confira o e-mail informado.','error');return;}
+ $('submit-btn').disabled=true;msg('Confirmando sua vaga...','loading');
+ const {error}=await sb.rpc('inscrever_aluno',{p_turma_id:turma.id,p_nome:nome,p_email:email,p_telefone:tel});
+ if(error){
+  $('submit-btn').disabled=false;
+  if(error.message&&error.message.includes('lotada')){msg('Essa turma acabou de lotar. Escolhendo a próxima data...','error');escolher(curso);}
+  else msg('Algo deu errado. Tente novamente ou fale no WhatsApp.','error');
+  return;
+ }
+ $('form-area').hidden=true;$('success').hidden=false;window.scrollTo({top:0,behavior:'smooth'});
+ window.dataLayer=window.dataLayer||[];
+ dataLayer.push({'event':'inscricao_concluida',curso:curso,value:CURSOS[curso].preco,currency:'BRL',event_category:'conversao',event_label:curso});
+});
 </script>
-
 </body>
 </html>
